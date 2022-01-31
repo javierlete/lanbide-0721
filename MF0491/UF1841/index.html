@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo HTML</title>
 </head>
+
 <body>
     <header>
         <h1>Ejemplo HTML</h1>
@@ -19,18 +21,106 @@
     </nav>
     <main>
         <article id="html">
+            <h3>HTML</h3>
             <section id="parrafos">
+                <h4>Párrafos</h4>
                 <!-- p*5>lorem -->
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo dignissimos delectus, voluptate, in aperiam vero cum repellendus aliquid corrupti molestiae neque assumenda. Dignissimos dolores, et cum earum aliquid dicta eligendi?</p>
-                <p>Officiis autem assumenda id error quaerat neque dolorum laudantium labore voluptas suscipit omnis sit veniam, soluta dolor illum ut quas odit nobis facere cumque sapiente aliquam doloribus adipisci nostrum. Est.</p>
-                <p>Magni tempora rerum, consectetur atque obcaecati sed labore numquam, mollitia nemo suscipit quibusdam reprehenderit illum quasi, quos deserunt quia provident aspernatur porro saepe minus ea sit libero temporibus? Natus, obcaecati.</p>
-                <p>Quae repudiandae omnis, consequuntur, vero perspiciatis sapiente, beatae sunt doloremque ratione rem facere dicta dolores architecto expedita! Quidem magnam atque nam odit sequi quisquam repellat molestias soluta? Porro, delectus ad.</p>
-                <p>Placeat laborum officia culpa nam dolorum sequi, ex dolores similique quia maiores aspernatur dicta natus iure harum non quod enim sed, minima iste? Quia a vitae corrupti accusamus ullam at.</p>
+                <pre>
+#include &lt;stdio.h>;
+
+main() {
+    printf("Hola");
+}
+                </pre>
+
+                <hr>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+                    Explicabo dignissimos delectus, voluptate, in aperiam vero cum repellendus aliquid corrupti
+                    molestiae neque assumenda. Dignissimos dolores, et cum earum aliquid dicta eligendi?</p>
+                <p>Officiis autem assumenda id error quaerat neque dolorum laudantium labore voluptas suscipit omnis sit
+                    veniam, soluta dolor illum ut quas odit nobis facere cumque sapiente aliquam doloribus adipisci
+                    nostrum. Est.</p>
+                <p>Magni tempora rerum, consectetur atque obcaecati sed labore numquam, mollitia nemo suscipit quibusdam
+                    reprehenderit illum quasi, quos deserunt quia provident aspernatur porro saepe minus ea sit libero
+                    temporibus? Natus, obcaecati.</p>
+                <p>Quae repudiandae omnis, consequuntur, vero perspiciatis sapiente, beatae sunt doloremque ratione rem
+                    facere dicta dolores architecto expedita! Quidem magnam atque nam odit sequi quisquam repellat
+                    molestias soluta? Porro, delectus ad.</p>
+                <p>Placeat laborum officia culpa nam dolorum sequi, ex dolores similique quia maiores aspernatur dicta
+                    natus iure harum non quod enim sed, minima iste? Quia a vitae corrupti accusamus ullam at.</p>
+            </section>
+            <section id="listas">
+                <h4>Listas</h4>
+
+                <ul>
+                    <li>Unordered List 1</li>
+                    <li>Unordered List 2</li>
+                    <li>Unordered List 3</li>
+                </ul>
+
+                <ol>
+                    <li>Ordered List 1</li>
+                    <li>Ordered List 2</li>
+                    <li>Ordered List 3</li>
+                </ol>
+
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>Hyper Text Markup Language</dd>
+
+                    <dt>CSS</dt>
+                    <dd>Cascade Style Sheets</dd>
+                </dl>
+
+                <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, eius alias officiis
+                    voluptates consequuntur, necessitatibus velit cum voluptas accusantium nulla error pariatur
+                    excepturi adipisci dicta id? Laborum mollitia blanditiis aut.</blockquote>
+
+                <div>
+                    <span class="palabra-inicial">Bloque</span> <strong>genérico</strong> sin <em>ninguna característica
+                        semántica en concreto</em>.
+                </div>
+
+                <p>
+                    La función <code>printf</code> sirve para mostrar datos por consola.
+                </p>
+
+                <p>
+                    Si usas <kbd>ALT+SHIFT+F</kbd> te formatea el código.
+                </p>
+            </section>
+            <section id="multimedia">
+                <h4>Multimedia</h4>
+
+                <figure>
+                    <img src="imgs/HTML5.svg" alt="Logotipo de HTML5">
+                    <figcaption>De <a rel="nofollow" class="external text"
+                            href="https://www.w3.org/html/logo/index.html">W3C</a>, <a
+                            href="https://creativecommons.org/licenses/by/3.0"
+                            title="Creative Commons Attribution 3.0">CC BY 3.0</a>, <a
+                            href="https://commons.wikimedia.org/w/index.php?curid=12736763">Enlace</a></figcaption>
+                </figure>
+
+                <video src="videos/pr6.webm" controls></video>
+
+                <audio src="audios/horse.ogv" controls></audio>
             </section>
         </article>
     </main>
+    <aside>
+        <nav>
+            <ul>
+                <li><a href="#">Vínculo externo 1</a></li>
+                <li><a href="#">Vínculo externo 2</a></li>
+                <li><a href="#">Vínculo externo 3</a></li>
+                <li><a href="#">Vínculo externo 4</a></li>
+            </ul>
+        </nav>
+    </aside>
     <footer>
         &copy;2022 Javier Lete
     </footer>
 </body>
+
 </html>
