@@ -1,0 +1,115 @@
+:root {
+    --color-tinta: black;
+    --color-fondo: white;
+    --color-vinculo: #005c5c;
+    --margen: 0.5rem;
+    --font-size: 0.9rem;
+    --line-height: 1.5rem;
+    --margen-parrafo: calc(var(--line-height)/3);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    color: var(--color-tinta);
+    background-color: var(--color-fondo);
+
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+}
+
+p {
+    padding: var(--margen-parrafo) 0;
+}
+
+blockquote::before, blockquote::after, blockquote {
+    font-size: calc(var(--font-size)*1.5);
+    line-height: calc(var(--line-height)*1.5);
+}    
+    
+blockquote::before {
+    content: "«";
+}
+
+blockquote::after {
+    content: "»";
+}
+
+strong {
+    font-variant: small-caps;
+    font-weight: normal;
+}
+
+em {
+    font-style: normal;
+    background-color: yellow;
+}
+
+.palabra-inicial {
+    text-transform: uppercase;
+}
+
+code, kbd {
+    background-color: lightgray;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+kbd {
+    background-color: var(--color-tinta);
+    color: var(--color-fondo);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-vinculo);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    background-color: var(--color-tinta);
+    color: var(--color-fondo);
+    padding: var(--margen);
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+}
+
+body > nav ul
+/* header + nav ul */ {
+    margin: 0;
+    padding: var(--margen);
+    list-style: none;
+    text-align: center;
+
+    background-color: var(--color-tinta);
+}
+
+body > nav a {
+    display: inline-block;
+    border: 1px solid var(--color-fondo);
+    padding: var(--margen);
+    color: var(--color-fondo);
+    background-color: var(--color-vinculo);
+    width: 100%;
+}
+
+body > nav a:hover {
+    color: var(--color-tinta);
+    background-color: var(--color-fondo);
+
+    text-decoration: none;
+}
+
+main {
+    padding: var(--margen);
+}
