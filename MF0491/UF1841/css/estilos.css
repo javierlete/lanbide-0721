@@ -142,6 +142,11 @@ body > nav ul
   background-color: var(--color-tinta);
 }
 
+body > nav ul {
+  display: flex;
+  flex-direction: column;
+}
+
 body > nav a {
   display: inline-block;
   border: 1px solid var(--color-fondo);
@@ -270,7 +275,7 @@ aside ul {
 #arriba a {
   color: var(--color-fondo);
   font-size: 2rem;
-  
+
   text-shadow: darkgrey 1px 1px;
 
   position: fixed;
@@ -291,16 +296,105 @@ aside ul {
   box-shadow: 1px 1px 10px black;
 }
 
-@media (min-width: 576px) {
-    body > nav li {
-        display: inline-block;
-    }
-    body > nav a {
-        width: inherit;
-    }
+body > header {
+  grid-area: cabecera;
+}
 
-    #parrafos, #listas {
-        float: left;
-        width: 50%;
-    }
+body > nav {
+  grid-area: menu;
+}
+
+body > main {
+  grid-area: contenido;
+}
+
+body > aside {
+  grid-area: anuncios;
+}
+
+body > footer {
+  grid-area: pie;
+}
+
+#html > h3 {
+  grid-area: titulo;
+}
+
+#parrafos {
+  grid-area: parrafos;
+}
+
+#listas {
+  grid-area: listas;
+}
+
+#multimedia {
+  grid-area: multimedia;
+}
+
+#tablas {
+  grid-area: tablas;
+}
+
+#formularios {
+  grid-area: formularios;
+}
+
+@media (min-width: 576px) {
+  body > nav {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+  }
+  body > nav ul {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  body > nav a {
+    width: inherit;
+  }
+
+  #html {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+
+    column-gap: var(--margen);
+    row-gap: var(--margen);
+
+    grid-template-areas:
+      "titulo titulo"
+      "parrafos multimedia"
+      "listas tablas"
+      "formularios formularios";
+  }
+}
+
+@media (min-width: 769px) {
+  #html {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-template-areas:
+      "titulo titulo titulo"
+      "listas tablas formularios"
+      "parrafos multimedia multimedia"
+      ;
+  }
+}
+
+@media (min-width: 1025px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr 12em;
+    grid-template-rows: auto;
+   
+    column-gap: var(--margen);
+
+    grid-template-areas:
+      "cabecera cabecera"
+      "menu menu"
+      "contenido anuncios"
+      "pie pie";
+  }
 }
