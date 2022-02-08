@@ -12,26 +12,217 @@
     <title>Hello, world!</title>
 </head>
 
-<body class="container">
-    <div class="row">
-        <header class="col-12">
-            <h1 class="display-1">Ejemplo HTML</h1>
-        </header>
-        <nav class="col-12">
-            <!-- ul>li*3>a[href=#]{Opción $} -->
-            <ul class="d-sm-flex justify-content-around list-unstyled">
-                <li><a href="../meses.html">Ejemplo de meses</a></li>
-                <li><a href="http://www.google.es">Google</a></li>
-                <li><a href="#tablas">Tablas</a></li>
-            </ul>
-        </nav>
-        <main class="col-lg-9 col-xl-10 col-xxl-11">
-            <article id="html" class="row">
-                <h3 class="col-12 order-first display-6">HTML</h3>
-                <section id="parrafos" class="col-12 order-md-4 col-md-4">
-                    <h4>Párrafos</h4>
-                    <!-- p*5>lorem -->
-                    <pre>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ejemplo de HTML, CSS, Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#bootstrap">Bootstrap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#html">HTML</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Opciones de HTML
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#parrafos">Párrafos</a></li>
+                            <li><a class="dropdown-item" href="#listas">Listas</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#tablas">Tablas</a></li>
+                            <li><a class="dropdown-item" href="#multimedia">Multimedia</a></li>
+                            <li><a class="dropdown-item" href="#formularios">Formularios</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        Bienvenido al ejemplo de Bootstrap
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <header class="col-12">
+                <h1 class="display-1">Ejemplo HTML</h1>
+            </header>
+            
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Principal</a></li>
+                    <li class="breadcrumb-item"><a href="#">Tablas</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Blablabla</li>
+                </ol>
+            </nav>
+            <main class="col-lg-9 col-xl-10 col-xxl-11">
+                <article id="bootstrap" class="row">
+                    <h3>Bootstrap</h3>
+                    <section id="tabs">
+                        <h4>Tabs</h4>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                    aria-selected="true">Home</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                    type="button" role="tab" aria-controls="profile"
+                                    aria-selected="false">Profile</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                                    type="button" role="tab" aria-controls="contact"
+                                    aria-selected="false">Contact</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque similique maxime
+                                corrupti
+                                error aperiam ipsam facilis laudantium veniam totam aliquam, dolor officiis? Assumenda
+                                ipsam
+                                eligendi soluta voluptatum cumque iusto vitae?
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Lorem
+                                ipsum dolor sit amet, consectetur adipisicing elit. Numquam ipsum dolores laborum minus,
+                                reiciendis sequi debitis possimus placeat deserunt voluptates veritatis dignissimos,
+                                nesciunt consectetur. Dolorum esse aliquid dignissimos quo enim.</div>
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Lorem
+                                ipsum dolor sit amet consectetur adipisicing elit. Quasi reiciendis tenetur aliquid!
+                                Qui,
+                                unde, inventore consectetur nobis non nostrum mollitia fugit esse numquam laboriosam
+                                quos
+                                deserunt architecto aliquam exercitationem ipsa.</div>
+                        </div>
+                    </section>
+                    <section id="modales">
+                        <h4>Modales</h4>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mi-modal">
+                            Lanzar modal
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="mi-modal" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Modal de ejemplo</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi maxime
+                                        numquam
+                                        odit temporibus eos ea porro beatae suscipit minus vero. Amet alias molestiae
+                                        omnis
+                                        animi distinctio? Reiciendis velit consequatur unde?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary">Entendido</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="cards">
+                        <h4>Cards</h4>
+                        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6 g-4">
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?1" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Teclado</h5>
+                                        <p class="card-text">Teclado super chuli.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">123€</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?2" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ratón</h5>
+                                        <p class="card-text">Ratón lógico super bueno.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">74€</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?3" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Monitor</h5>
+                                        <p class="card-text">Blablabla.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">200€</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?1" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Teclado</h5>
+                                        <p class="card-text">Teclado super chuli.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">123€</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?2" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ratón</h5>
+                                        <p class="card-text">Ratón lógico super bueno.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">74€</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?3" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Monitor</h5>
+                                        <p class="card-text">Blablabla.</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">200€</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+                <article id="html" class="row">
+                    <h3 class="col-12 order-first display-6">HTML</h3>
+                    <section id="parrafos" class="col-12 order-md-4 col-md-4">
+                        <h4>Párrafos</h4>
+                        <!-- p*5>lorem -->
+                        <pre>
 #include &lt;stdio.h>;
 
 main() {
@@ -39,217 +230,265 @@ main() {
 }
                 </pre>
 
-                    <hr>
+                        <hr>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
-                        Explicabo dignissimos delectus, voluptate, in aperiam vero cum repellendus aliquid corrupti
-                        molestiae neque assumenda. Dignissimos dolores, et cum earum aliquid dicta eligendi?</p>
-                    <p>Officiis autem assumenda id error quaerat neque dolorum laudantium labore voluptas suscipit omnis
-                        sit
-                        veniam, soluta dolor illum ut quas odit nobis facere cumque sapiente aliquam doloribus adipisci
-                        nostrum. Est.</p>
-                    <p>Magni tempora rerum, consectetur atque obcaecati sed labore numquam, mollitia nemo suscipit
-                        quibusdam
-                        reprehenderit illum quasi, quos deserunt quia provident aspernatur porro saepe minus ea sit
-                        libero
-                        temporibus? Natus, obcaecati.</p>
-                    <p>Quae repudiandae omnis, consequuntur, vero perspiciatis sapiente, beatae sunt doloremque ratione
-                        rem
-                        facere dicta dolores architecto expedita! Quidem magnam atque nam odit sequi quisquam repellat
-                        molestias soluta? Porro, delectus ad.</p>
-                    <p>Placeat laborum officia culpa nam dolorum sequi, ex dolores similique quia maiores aspernatur
-                        dicta
-                        natus iure harum non quod enim sed, minima iste? Quia a vitae corrupti accusamus ullam at.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+                            Explicabo dignissimos delectus, voluptate, in aperiam vero cum repellendus aliquid corrupti
+                            molestiae neque assumenda. Dignissimos dolores, et cum earum aliquid dicta eligendi?</p>
+                        <p>Officiis autem assumenda id error quaerat neque dolorum laudantium labore voluptas suscipit
+                            omnis
+                            sit
+                            veniam, soluta dolor illum ut quas odit nobis facere cumque sapiente aliquam doloribus
+                            adipisci
+                            nostrum. Est.</p>
+                        <p>Magni tempora rerum, consectetur atque obcaecati sed labore numquam, mollitia nemo suscipit
+                            quibusdam
+                            reprehenderit illum quasi, quos deserunt quia provident aspernatur porro saepe minus ea sit
+                            libero
+                            temporibus? Natus, obcaecati.</p>
+                        <p>Quae repudiandae omnis, consequuntur, vero perspiciatis sapiente, beatae sunt doloremque
+                            ratione
+                            rem
+                            facere dicta dolores architecto expedita! Quidem magnam atque nam odit sequi quisquam
+                            repellat
+                            molestias soluta? Porro, delectus ad.</p>
+                        <p>Placeat laborum officia culpa nam dolorum sequi, ex dolores similique quia maiores aspernatur
+                            dicta
+                            natus iure harum non quod enim sed, minima iste? Quia a vitae corrupti accusamus ullam at.
+                        </p>
 
-                    <blockquote class="blockquote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, eius
-                        alias officiis
-                        voluptates consequuntur, necessitatibus velit cum voluptas accusantium nulla error pariatur
-                        excepturi adipisci dicta id? Laborum mollitia blanditiis aut.</blockquote>
+                        <blockquote class="blockquote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse,
+                            eius
+                            alias officiis
+                            voluptates consequuntur, necessitatibus velit cum voluptas accusantium nulla error pariatur
+                            excepturi adipisci dicta id? Laborum mollitia blanditiis aut.</blockquote>
 
-                    <div class="lead">
-                        <span class="palabra-inicial">Bloque</span> <strong>genérico</strong> sin <em>ninguna
-                            característica
-                            semántica en concreto</em>.
-                    </div>
+                        <div class="lead">
+                            <span class="palabra-inicial">Bloque</span> <strong>genérico</strong> sin <em>ninguna
+                                característica
+                                semántica en concreto</em>.
+                        </div>
 
-                    <p>
-                        La función <code>printf</code> sirve para mostrar datos por consola.
-                    </p>
+                        <p>
+                            La función <code>printf</code> sirve para mostrar datos por consola.
+                        </p>
 
-                    <p>
-                        Si usas <kbd>ALT+SHIFT+F</kbd> te formatea el código.
-                    </p>
-                </section>
+                        <p>
+                            Si usas <kbd>ALT+SHIFT+F</kbd> te formatea el código.
+                        </p>
+                    </section>
 
-                <section id="listas" class="col-sm-6 order-md-1 col-md-4">
-                    <h4>Listas</h4>
+                    <section id="listas" class="col-sm-6 order-md-1 col-md-4">
+                        <h4>Listas</h4>
 
-                    <ul>
-                        <li>Unordered List 1</li>
-                        <li>Unordered List 2</li>
-                        <li>Unordered List 3</li>
-                    </ul>
+                        <ul>
+                            <li>Unordered List 1</li>
+                            <li>Unordered List 2</li>
+                            <li>Unordered List 3</li>
+                        </ul>
 
-                    <ol>
-                        <li>Ordered List 1</li>
-                        <li>Ordered List 2
-                            <ol>
-                                <li>Sub 1</li>
-                                <li>Sub 2</li>
-                            </ol>
+                        <ol>
+                            <li>Ordered List 1</li>
+                            <li>Ordered List 2
+                                <ol>
+                                    <li>Sub 1</li>
+                                    <li>Sub 2</li>
+                                </ol>
+                            </li>
+                            <li>Ordered List 3</li>
+                        </ol>
+
+                        <dl>
+                            <dt>HTML</dt>
+                            <dd>Hyper Text Markup Language</dd>
+
+                            <dt>CSS</dt>
+                            <dd>Cascade Style Sheets</dd>
+                        </dl>
+                    </section>
+                    <section id="multimedia" class="col-12 order-sm-1 order-md-5 col-md-8">
+                        <h4>Multimedia</h4>
+
+                        <figure class="figure w-100">
+                            <img class="figure-img img-thumbnail" src="../imgs/HTML5.svg" alt="Logotipo de HTML5">
+                            <figcaption class="figure-caption">De <a rel="nofollow" class="external text"
+                                    href="https://www.w3.org/html/logo/index.html">W3C</a>, <a
+                                    href="https://creativecommons.org/licenses/by/3.0"
+                                    title="Creative Commons Attribution 3.0">CC BY 3.0</a>, <a
+                                    href="https://commons.wikimedia.org/w/index.php?curid=12736763">Enlace</a>
+                            </figcaption>
+                        </figure>
+
+                        <video class="w-100" src="../videos/pr6.webm" controls></video>
+
+                        <audio class="w-100" src="../audios/horse.ogv" controls></audio>
+
+                        <div class="ratio ratio-1x1">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762081766561!2d-2.9155446506146623!3d43.25640788601674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1643725827745!5m2!1ses!2ses"
+                                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube-nocookie.com/embed/O3VPs9b_HZE"
+                                title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="ratio ratio-4x3">
+                            <iframe style="border-radius:12px"
+                                src="https://open.spotify.com/embed/album/6nNlTIiFd3J06W0rJiiwlz?utm_source=generator"
+                                allowfullscreen=""
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>
+                    </section>
+
+                    <section id="tablas" class="col-sm-6 order-md-2 col-md-4">
+                        <h4>Tablas</h4>
+
+                        <!-- table>(caption>{Ejemplo de tabla})+thead>tr>th[scope=col]*3 -->
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover table-sm">
+                                <caption>Ejemplo de tabla</caption>
+                                <thead class="table-dark ">
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                    </tr>
+                                </thead>
+                                <!-- tbody>tr*5>(th[scope=row]>{$})+(td>{Nombre$})+(td>{Apellido$}) -->
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Nombre1</td>
+                                        <td>Apellido1</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Nombre2</td>
+                                        <td>Apellido2</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Nombre3</td>
+                                        <td>Apellido3</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Nombre4</td>
+                                        <td>Apellido4</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Nombre5</td>
+                                        <td>Apellido5</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="formularios" class="col-12 order-sm-2 order-md-3 col-md-4">
+                        <h4>Formularios</h4>
+
+                        <form class="needs-validation" novalidate>
+                            <fieldset id="login">
+                                <legend>Login</legend>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input required class="form-control" type="email" id="email"
+                                        placeholder="Tu email habitual">
+                                    <div class="invalid-feedback">
+                                        Es obligatorio introducir un email
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="password">Contraseña</label>
+                                    <input required class="form-control" type="password" id="password"
+                                        placeholder="Una buena password">
+                                    <div class="invalid-feedback">
+                                        Es necesario proporcionar una contraseña
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn btn-primary">Login</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="pruebas">
+                                <legend>Pruebas</legend>
+
+                                <input class="form-control" type="number" step=".01" min="0" max="100">
+
+                                <input class="form-control" type="date">
+                                <input class="form-control" type="time">
+                                <input class="form-control" type="datetime-local">
+
+                                <input class="form-check-input" type="checkbox">
+
+                                <input class="form-check-input" type="radio" name="radios">
+                                <input class="form-check-input" type="radio" name="radios">
+
+                                <select class="form-select">
+                                    <option value="1">Uno</option>
+                                    <option value="2">Dos</option>
+                                    <option value="3">Tres</option>
+                                </select>
+                                <select class="form-select" multiple>
+                                    <option value="1">Uno</option>
+                                    <option value="2">Dos</option>
+                                    <option value="3">Tres</option>
+                                </select>
+
+                                <textarea class="form-control" cols="30" rows="10"></textarea>
+                            </fieldset>
+                        </form>
+
+                        <script>
+                            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function () {
+                                'use strict'
+
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.querySelectorAll('.needs-validation')
+
+                                // Loop over them and prevent submission
+                                Array.prototype.slice.call(forms)
+                                    .forEach(function (form) {
+                                        form.addEventListener('submit', function (event) {
+                                            if (!form.checkValidity()) {
+                                                event.preventDefault()
+                                                event.stopPropagation()
+                                            }
+
+                                            form.classList.add('was-validated')
+                                        }, false)
+                                    })
+                            })()
+                        </script>
+                    </section>
+                </article>
+            </main>
+            <aside class="col-lg-3 col-xl-2 col-xxl-1">
+                <nav>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Vínculo externo 1</a>
                         </li>
-                        <li>Ordered List 3</li>
-                    </ol>
-
-                    <dl>
-                        <dt>HTML</dt>
-                        <dd>Hyper Text Markup Language</dd>
-
-                        <dt>CSS</dt>
-                        <dd>Cascade Style Sheets</dd>
-                    </dl>
-                </section>
-                <section id="multimedia" class="col-12 order-sm-1 order-md-5 col-md-8">
-                    <h4>Multimedia</h4>
-
-                    <figure class="figure w-100">
-                        <img class="figure-img img-thumbnail" src="../imgs/HTML5.svg" alt="Logotipo de HTML5">
-                        <figcaption class="figure-caption">De <a rel="nofollow" class="external text"
-                                href="https://www.w3.org/html/logo/index.html">W3C</a>, <a
-                                href="https://creativecommons.org/licenses/by/3.0"
-                                title="Creative Commons Attribution 3.0">CC BY 3.0</a>, <a
-                                href="https://commons.wikimedia.org/w/index.php?curid=12736763">Enlace</a></figcaption>
-                    </figure>
-
-                    <video class="w-100" src="../videos/pr6.webm" controls></video>
-
-                    <audio class="w-100" src="../audios/horse.ogv" controls></audio>
-
-                    <div class="ratio ratio-1x1">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762081766561!2d-2.9155446506146623!3d43.25640788601674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1643725827745!5m2!1ses!2ses"
-                            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube-nocookie.com/embed/O3VPs9b_HZE" title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="ratio ratio-4x3">
-                        <iframe style="border-radius:12px"
-                            src="https://open.spotify.com/embed/album/6nNlTIiFd3J06W0rJiiwlz?utm_source=generator"
-                            allowfullscreen=""
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>
-                </section>
-
-                <section id="tablas" class="col-sm-6 order-md-2 col-md-4">
-                    <h4>Tablas</h4>
-
-                    <!-- table>(caption>{Ejemplo de tabla})+thead>tr>th[scope=col]*3 -->
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover table-sm">
-                            <caption>Ejemplo de tabla</caption>
-                            <thead class="table-dark ">
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido</th>
-                                </tr>
-                            </thead>
-                            <!-- tbody>tr*5>(th[scope=row]>{$})+(td>{Nombre$})+(td>{Apellido$}) -->
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Nombre1</td>
-                                    <td>Apellido1</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Nombre2</td>
-                                    <td>Apellido2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Nombre3</td>
-                                    <td>Apellido3</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Nombre4</td>
-                                    <td>Apellido4</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Nombre5</td>
-                                    <td>Apellido5</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <section id="formularios" class="col-12 order-sm-2 order-md-3 col-md-4">
-                    <h4>Formularios</h4>
-
-                    <form>
-                        <fieldset id="login">
-                            <legend>Login</legend>
-
-                            <div class="mb-3">
-                                <label class="form-label" for="email">Email</label>
-                                <input class="form-control" type="email" id="email" placeholder="Tu email habitual">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="password">Contraseña</label>
-                                <input class="form-control" type="password" id="password" placeholder="Una buena password">
-                            </div>
-                            <div class="mb-3">
-                                <button class="btn btn-primary">Login</button>
-                            </div>
-                        </fieldset>
-
-                        <fieldset id="pruebas">
-                            <legend>Pruebas</legend>
-
-                            <input class="form-control" type="number" step=".01" min="0" max="100">
-
-                            <input class="form-control" type="date">
-                            <input class="form-control" type="time">
-                            <input class="form-control" type="datetime-local">
-
-                            <input class="form-check-input" type="checkbox">
-
-                            <input class="form-check-input" type="radio" name="radios">
-                            <input class="form-check-input" type="radio" name="radios">
-
-                            <select class="form-select">
-                                <option value="1">Uno</option>
-                                <option value="2">Dos</option>
-                                <option value="3">Tres</option>
-                            </select>
-                            <select class="form-select" multiple>
-                                <option value="1">Uno</option>
-                                <option value="2">Dos</option>
-                                <option value="3">Tres</option>
-                            </select>
-
-                            <textarea class="form-control" cols="30" rows="10"></textarea>
-                        </fieldset>
-                    </form>
-                </section>
-            </article>
-        </main>
-        <aside class="col-lg-3 col-xl-2 col-xxl-1">
-            <nav>
-                <ul>
-                    <li><a href="#">Vínculo externo 1</a></li>
-                    <li><a href="#">Vínculo externo 2</a></li>
-                    <li><a href="#">Vínculo externo 3</a></li>
-                    <li><a href="#">Vínculo externo 4</a></li>
-                </ul>
-            </nav>
-        </aside>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Vínculo externo 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Vínculo externo 3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Vínculo externo 4</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
         <footer class="col-12">
             <p>&copy;2022 Javier Lete</p>
             <div id="arriba">
