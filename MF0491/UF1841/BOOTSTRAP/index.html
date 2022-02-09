@@ -8,17 +8,18 @@
 
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap-icons.css" />
     <title>Hello, world!</title>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<body class="position-relative" data-bs-spy="scroll" data-bs-target="#menu" data-bs-offset="100">
+    <nav id="menu" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Ejemplo de HTML, CSS, Bootstrap</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -46,6 +47,12 @@
                         </ul>
                     </li>
                 </ul>
+                <span class="navbar-text">Usuario</span>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -58,7 +65,7 @@
             <header class="col-12">
                 <h1 class="display-1">Ejemplo HTML</h1>
             </header>
-            
+
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Principal</a></li>
@@ -69,6 +76,54 @@
             <main class="col-lg-9 col-xl-10 col-xxl-11">
                 <article id="bootstrap" class="row">
                     <h3>Bootstrap</h3>
+                    <section id="utilidades">
+                        <h4>Utilidades</h4>
+                        <div class="d-none">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam accusamus est iusto facere quia esse quam neque possimus reprehenderit laudantium. Quos mollitia molestiae sed atque est, nesciunt ad dolorem nam?
+                        </div>
+                        <div class="invisible">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque quos asperiores dolor blanditiis, porro culpa tempore cupiditate neque natus. Dolore deleniti illo numquam exercitationem autem doloremque voluptatibus architecto earum molestias.
+                        </div>
+                    </section>
+                    <section id="barras">
+                        <h4>Barras</h4>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">35%</div>
+                        </div>
+                    </section>
+                    <section id="tooltips">
+                        <h4>Tooltips</h4>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Tooltip on top">
+                            Tooltip on top
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+                            data-bs-placement="right" title="Tooltip on right">
+                            Tooltip on right
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="Tooltip on bottom">
+                            Tooltip on bottom
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip"
+                            data-bs-placement="left" title="Tooltip on left">
+                            Tooltip on left
+                        </button>
+                    </section>
+                    <section id="popovers">
+                        <h4>Popovers</h4>
+                        <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover"
+                            title="Popover title"
+                            data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to
+                            toggle popover</button>
+                        <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover"
+                            data-bs-trigger="focus" title="Dismissible popover"
+                            data-bs-content="And here's some amazing content. It's very engaging. Right?">Dismissible
+                            popover</a>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="popover"
+                            data-bs-trigger="hover focus" data-bs-content="ENABLED popover">"Enabled" button</button>
+                    </section>
                     <section id="tabs">
                         <h4>Tabs</h4>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -211,6 +266,150 @@
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted">200€</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?3" class="card-img-top" alt="...">
+                                    <div class="card-body placeholder-glow">
+                                        <h5 class="card-title">
+                                            <span class="placeholder col-4"></span>
+                                        </h5>
+                                        <p class="card-text">
+                                            <span class="placeholder col-8"></span>
+                                        </p>
+                                    </div>
+                                    <div class="card-footer placeholder-glow">
+                                        <small class="text-muted">
+                                            <span class="placeholder col-1"></span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?3" class="card-img-top" alt="...">
+                                    <div class="card-body placeholder-glow">
+                                        <h5 class="card-title">
+                                            <span class="placeholder col-4"></span>
+                                        </h5>
+                                        <p class="card-text">
+                                            <span class="placeholder col-8"></span>
+                                        </p>
+                                    </div>
+                                    <div class="card-footer placeholder-glow">
+                                        <small class="text-muted">
+                                            <span class="placeholder col-1"></span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?3" class="card-img-top" alt="...">
+                                    <div class="card-body placeholder-glow">
+                                        <h5 class="card-title">
+                                            <span class="placeholder col-4"></span>
+                                        </h5>
+                                        <p class="card-text">
+                                            <span class="placeholder col-8"></span>
+                                        </p>
+                                    </div>
+                                    <div class="card-footer placeholder-glow">
+                                        <small class="text-muted">
+                                            <span class="placeholder col-1"></span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?3" class="card-img-top" alt="...">
+                                    <div class="card-body placeholder-glow">
+                                        <h5 class="card-title">
+                                            <span class="placeholder col-4"></span>
+                                        </h5>
+                                        <p class="card-text">
+                                            <span class="placeholder col-8"></span>
+                                        </p>
+                                    </div>
+                                    <div class="card-footer placeholder-glow">
+                                        <small class="text-muted">
+                                            <span class="placeholder col-1"></span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?3" class="card-img-top" alt="...">
+                                    <div class="card-body placeholder-glow">
+                                        <h5 class="card-title">
+                                            <span class="placeholder col-4"></span>
+                                        </h5>
+                                        <p class="card-text">
+                                            <span class="placeholder col-8"></span>
+                                        </p>
+                                    </div>
+                                    <div class="card-footer placeholder-glow">
+                                        <small class="text-muted">
+                                            <span class="placeholder col-1"></span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?3" class="card-img-top" alt="...">
+                                    <div class="card-body placeholder-glow">
+                                        <h5 class="card-title">
+                                            <span class="placeholder col-4"></span>
+                                        </h5>
+                                        <p class="card-text">
+                                            <span class="placeholder col-8"></span>
+                                        </p>
+                                    </div>
+                                    <div class="card-footer placeholder-glow">
+                                        <small class="text-muted">
+                                            <span class="placeholder col-1"></span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?3" class="card-img-top" alt="...">
+                                    <div class="card-body placeholder-glow">
+                                        <h5 class="card-title">
+                                            <span class="placeholder col-4"></span>
+                                        </h5>
+                                        <p class="card-text">
+                                            <span class="placeholder col-8"></span>
+                                        </p>
+                                    </div>
+                                    <div class="card-footer placeholder-glow">
+                                        <small class="text-muted">
+                                            <span class="placeholder col-1"></span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="https://placeimg.com/640/480/tech?3" class="card-img-top" alt="...">
+                                    <div class="card-body placeholder-glow">
+                                        <h5 class="card-title">
+                                            <span class="placeholder col-4"></span>
+                                        </h5>
+                                        <p class="card-text">
+                                            <span class="placeholder col-8"></span>
+                                        </p>
+                                    </div>
+                                    <div class="card-footer placeholder-glow">
+                                        <small class="text-muted">
+                                            <span class="placeholder col-1"></span>
+                                        </small>
                                     </div>
                                 </div>
                             </div>
@@ -489,17 +688,39 @@ main() {
                 </nav>
             </aside>
         </div>
-        <footer class="col-12">
-            <p>&copy;2022 Javier Lete</p>
-            <div id="arriba">
-                <a href="#">
-                    <i class="fa-solid fa-arrow-up"></i>
-                </a>
-            </div>
-        </footer>
+        
     </div>
+    <footer class="col-12 bg-dark text-light p-3">
+        <div class="d-flex">
+            <p class="me-auto">&copy;2022 Javier Lete</p>
+            <p>
+                <a href="#"><i class="bi bi-facebook text-light"></i></a>
+                <a href="#"><i class="bi bi-twitter text-light"></i></a>
+                <a href="#"><i class="bi bi-youtube text-light"></i></a>
+            </p>
+        </div>
+
+        <div id="arriba">
+            <a style="font-size: 4em;" class="position-fixed bottom-0 end-0 rounded-circle me-5 mb-5" href="#">
+                <i class="bi bi-arrow-up-circle-fill"></i>
+            </a>
+        </div>
+    </footer>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Activar Popovers
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        });
+
+        // Activar Tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
 </body>
 
 </html>
