@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <base href="../" />
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap-icons.css" />
+    <title>Administración</title>
+</head>
+
+<body class="container">
+
+    <h1>Administración</h1>
+
+    <h2>CRUD (Create, Retrieve, Update, Delete)</h2>
+
+    <table class="table table-hover table-bordered table-striped">
+        <caption>Productos</caption>
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--tr*5>(th>{$})+(td>{Nombre$})+(td>{$$})-->
+            <tr>
+                <th>1</th>
+                <td>Monitor</td>
+                <td>123,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>1</th>
+                <td>Monitor</td>
+                <td>123,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>1</th>
+                <td>Monitor</td>
+                <td>123,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot class="table-dark">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Añadir</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    // Activar Popovers
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    });
+
+    // Activar Tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+</body>
+
+</html>
