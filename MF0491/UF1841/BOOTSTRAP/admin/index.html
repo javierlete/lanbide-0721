@@ -12,6 +12,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <!-- Iconos de Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap-icons.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
     <title>Administración</title>
 </head>
 
@@ -43,9 +45,18 @@
                 </td>
             </tr>
             <tr>
-                <th>1</th>
-                <td>Monitor</td>
-                <td>123,64€</td>
+                <th>2</th>
+                <td>Ratón</td>
+                <td>23,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>Teclado</td>
+                <td>12,64€</td>
                 <td>
                     <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
                     <a href="#" class="btn btn-sm btn-danger">Borrar</a>
@@ -55,6 +66,78 @@
                 <th>1</th>
                 <td>Monitor</td>
                 <td>123,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td>Ratón</td>
+                <td>23,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>Teclado</td>
+                <td>12,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>1</th>
+                <td>Monitor</td>
+                <td>123,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td>Ratón</td>
+                <td>23,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>Teclado</td>
+                <td>12,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>1</th>
+                <td>Monitor</td>
+                <td>123,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td>Ratón</td>
+                <td>23,64€</td>
+                <td>
+                    <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                </td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>Teclado</td>
+                <td>12,64€</td>
                 <td>
                     <a href="admin/producto.html" class="btn btn-sm btn-primary">Editar</a>
                     <a href="#" class="btn btn-sm btn-danger">Borrar</a>
@@ -77,18 +160,17 @@
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
 <script>
-    // Activar Popovers
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-        return new bootstrap.Popover(popoverTriggerEl)
+    $(document).ready(function () {
+        $('table').DataTable({
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.11.4/i18n/es_es.json'
+        }
+    } );
     });
-
-    // Activar Tooltips
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
 </script>
 </body>
 
