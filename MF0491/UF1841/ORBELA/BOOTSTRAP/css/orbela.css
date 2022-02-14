@@ -1,0 +1,79 @@
+:root {
+    --color-claro: #F6F7D5;
+    --texto-tamano: 18px;
+    --color-texto: #35360B;
+    --color-fondo: #9EA123;
+    --color-numeros: #E4E682;
+    --grosor-borde: 2em;
+}
+
+/* Colores */
+
+body {
+    color: var(--color-texto);
+}
+
+#idiomas a {
+    background-color: var(--color-fondo);
+}
+
+#menu, #numeros {
+    background-color: var(--color-fondo);
+}
+
+#menu a, #numeros a {
+    color: var(--color-claro);
+    font-weight: bold;
+}
+
+body > footer a.nav-link {
+    color: var(--color-texto);
+}
+
+body > footer {
+    background-color: var(--color-fondo);
+}
+
+/* Otros */
+
+body > .row > header {
+    background-image: url(../imgs/fondo_encabezado.png);
+    background-repeat: repeat-x;
+    background-position-x: right;
+
+    height: 104px;
+}
+
+body > .row > header > .row > h1::before {
+    border-left: 1px solid black;
+    content: ' ';
+    padding-top: 31px;
+}
+
+body > .row > header > .row > h1::after {
+    border-right: 1px solid black;
+    content: ' ';
+    padding-top: 31px;
+}
+
+body > .row > header div {
+    top: -15px !important;
+}
+
+article {
+    background-image: url(../imgs/hojarasca.jpg);
+    height: 400px;
+}
+
+article p {
+    width: 462px;
+    height: 95px;
+}
+
+body > footer {
+    border-top: var(--grosor-borde) solid var(--color-texto);
+}
+
+body > footer img {
+    margin-top: -2em;
+}
