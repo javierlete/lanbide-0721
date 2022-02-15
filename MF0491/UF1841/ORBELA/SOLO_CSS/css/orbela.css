@@ -31,24 +31,12 @@ body {
 
 /* Grid */
 
-#precabecera {
-  grid-area: precabecera;
-}
-
 #cabecera {
   grid-area: cabecera;
 }
 
-#premenu {
-  grid-area: premenu;
-}
-
 #menu {
   grid-area: menu;
-}
-
-#postmenu {
-  grid-area: postmenu;
 }
 
 #contenido {
@@ -65,15 +53,30 @@ body {
   grid-template-rows: 104px auto auto auto;
 
   grid-template-areas:
-    "precabecera cabecera ."
-    "premenu menu postmenu"
+    ". cabecera ."
+    ". menu ."
     ". contenido ."
     "pie pie pie";
 }
 
+body::before {
+    grid-row: 1;
+    grid-column: 1;
+  
+    content: "";
+}
+
+body::after {
+    grid-row: 2;
+    grid-column: 1 / span 3;
+  
+    content: "";
+
+    z-index: -1;
+}
 /* Cabecera */
 
-#precabecera {
+body::before {
   background-image: url(../imgs/fondo_encabezado.png);
   background-position-x: right;
 }
@@ -129,9 +132,8 @@ body {
   margin-left: auto;
 }
 
-#premenu,
-#menu,
-#postmenu {
+body::after,
+#menu {
   background-color: var(--color-fondo-menu);
   text-transform: uppercase;
 }
@@ -274,7 +276,7 @@ body {
   }
 
   #menu li:last-of-type {
-      margin-left: inherit;
+    margin-left: inherit;
   }
 
   #contenido img {
