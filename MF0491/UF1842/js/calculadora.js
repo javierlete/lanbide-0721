@@ -20,6 +20,8 @@ function envioFormulario(e) {
     // Cancelamos el envío del formulario al servidor
     e.preventDefault();
 
+    console.log(e.submitter.innerText, this);
+
     // Convertimos los datos
     const x = +a.value;
     const y = +b.value;

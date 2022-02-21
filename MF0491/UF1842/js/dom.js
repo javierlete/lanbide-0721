@@ -14,4 +14,12 @@ document.addEventListener('DOMContentLoaded', function () {
         
         resultado.innerText = 'Hola ' + nombre.value;
     });
+
+    const botones = document.querySelectorAll('#botonera button');
+
+    for(let boton of botones) {
+        boton.addEventListener('click', function() {
+            console.log(this.innerText);
+        });
+    }
 });
