@@ -31,6 +31,15 @@ function envioFormulario(e) {
         case '+':
             resultado.innerText = x + y;
             break;
+        case '-':
+            resultado.innerText = x - y;
+            break;
+        case '*':
+            resultado.innerText = x * y;
+            break;
+        case '/':
+            resultado.innerText = x / y;
+            break;
         default:
             resultado.innerText = 'No tengo esa operación';
     }
