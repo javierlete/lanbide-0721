@@ -18,7 +18,26 @@ document.addEventListener('DOMContentLoaded', function () {
         operacion.addEventListener('click', function() {
             op1 = +display.value;
             display.value = '';
-            op = this.innerText;
+            
+            switch(this.innerText) {
+                case '+':
+                    op = sumar;
+                    break;
+                
+                case '-':
+                    op = restar;
+                    break;
+                
+                case '*':
+                    op = multiplicar;
+                    break;
+                
+                case '/':
+                    op = dividir;
+                    break;
+                default:
+                    op = 'NO RECONOCIDA';
+            }
 
             console.log(op1, op);
         });
@@ -29,23 +48,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
         console.log(op1, op, op2);
 
-        switch(op) {
-            case '+':
-                display.value = op1 + op2;
-                break;
-            
-            case '-':
-                display.value = op1 - op2;
-                break;
-            
-            case '*':
-                display.value = op1 * op2;
-                break;
-            
-            case '/':
-                display.value = op1 / op2;
-                break;
-            
-        }
+        display.value = op(op1, op2);
     })
 });
+
+function sumar(a, b) {
+    return a + b;
+}
+
+function restar(a, b) {
+    return a - b;
+}
+
+var multiplicar = function(a, b) {
+    return a * b;
+}
+
+var dividir = (a, b) => a / b;
