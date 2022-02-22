@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Por cada uno de los botones de operación...
-    for (let operacion of operaciones) {
+    operaciones.forEach(function(operacion) {
         // ...asignamos cuando se pulse...
         operacion.addEventListener('click', function() {
             // ...que guarde el valor en pantalla, convertido a número (+) en la variable op1
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             console.log(op1, op);
         });
-    }
+    });
 
     // Cuando se pulse al botón de igual
     igual.addEventListener('click', function() {
