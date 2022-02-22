@@ -1,3 +1,5 @@
+'use strict';
+
 let objetivo;
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -8,9 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
     objetivo = resetear();
 
     boton.addEventListener('click', function () {
-        if (objetivo > numero.value) {
+        if (objetivo > +numero.value) {
             respuesta.innerText = 'El objetivo es mayor';
-        } else if (objetivo < numero.value) {
+        } else if (objetivo < +numero.value) {
             respuesta.innerText = 'El objetivo es menor';
         } else {
             respuesta.innerText = 'Acertaste';
