@@ -1,18 +1,20 @@
+'use strict';
+
 const url = 'http://localhost:3000/usuarios/';
 let listado, id, email, password, formulario;
 
 document.addEventListener('DOMContentLoaded', async function () {
-    listado = document.getElementById('listado');
-    
+    listado = document.querySelector('#listado tbody');
+
     formulario = document.getElementById('formulario');
-    
+
     id = document.getElementById('id');
     email = document.getElementById('email');
     password = document.getElementById('password');
 
     formulario.addEventListener('submit', aceptar);
 
-    await listar();
+    listar();
 });
 
 async function aceptar(e) {
@@ -22,7 +24,7 @@ async function aceptar(e) {
 
     const usuario = { email: email.value, password: password.value };
 
-    if(id.value) { 
+    if (id.value) {
         usuario.id = id.value;
     }
 
@@ -53,14 +55,18 @@ async function listar() {
 
     listado.innerHTML = '';
 
-    let li;
+    let tr;
 
     usuarios.forEach(function (usuario) {
-        li = document.createElement('li');
-        li.innerHTML = `${usuario.id}, ${usuario.email} 
-            <a href="javascript:editar(${usuario.id})">Editar</a>
-            <a href="javascript:borrar(${usuario.id})">Borrar</a>`;
-        listado.appendChild(li);
+        tr = document.createElement('tr');
+        tr.innerHTML = `
+            <th>${usuario.id}</th>
+            <td>${usuario.email}</td>
+            <td> 
+                <a class="btn btn-primary" href="javascript:editar(${usuario.id})">Editar</a>
+                <a class="btn btn-danger" href="javascript:borrar(${usuario.id})">Borrar</a>
+            </td>`;
+        listado.appendChild(tr);
     });
 }
 
@@ -82,5 +88,5 @@ async function borrar(id) {
 
     console.log(respuesta);
 
-    await listar();
+    listar();
 }
