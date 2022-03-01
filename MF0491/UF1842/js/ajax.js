@@ -17,10 +17,20 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     formulario.addEventListener('submit', aceptar);
 
+    dni.addEventListener('change', cambioDni);
+
     activarModal();
 
     listar();
 });
+
+function cambioDni() {
+    if(dniValido(dni.value)) {
+        dni.setCustomValidity('');
+    } else {
+        dni.setCustomValidity('El DNI no es correcto');
+    }
+}
 
 async function aceptar(e) {
     e.preventDefault();
@@ -28,13 +38,6 @@ async function aceptar(e) {
     let metodo;
 
     const usuario = { email: email.value, password: password.value, dni: dni.value };
-
-    if(!dniValido(usuario.dni)) {
-        // alert('El DNI es incorrecto');
-        dni.setCustomValidity('El DNI no es correcto');
-        formulario.reportValidity();
-        return;
-    }
 
     if (id.value) {
         usuario.id = id.value;
