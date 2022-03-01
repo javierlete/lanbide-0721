@@ -93,7 +93,7 @@ async function borrar(id) {
 
     // if(!confirm(`¿Estás seguro de que quieres borrar el registro id=${id}?`)) {
     //     return;
-    // }
+    // }   
 
     const respuesta = await fetch(url + id, { method: 'DELETE' });
 
@@ -109,9 +109,9 @@ function activarModal() {
     estasSeguro.addEventListener('show.bs.modal', function (event) {
         console.log(event);
         // Button that triggered the modal
-        const boton = event.relatedTarget
+        const boton = event.relatedTarget;
         // Extract info from data-bs-* attributes
-        const id = boton.getAttribute('data-id')
+        const id = boton.dataset.id; // boton.getAttribute('data-id');
         // Update the modal's content.
         const cuerpo = estasSeguro.querySelector('.modal-body');
 
