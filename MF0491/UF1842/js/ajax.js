@@ -34,7 +34,13 @@ function cambioDni() {
 
 async function aceptar(e) {
     e.preventDefault();
+    
+    formulario.classList.add('was-validated');
 
+    if(!formulario.checkValidity()) {
+        return;
+    }
+    
     let metodo;
 
     const usuario = { email: email.value, password: password.value, dni: dni.value };
@@ -59,6 +65,7 @@ async function aceptar(e) {
     console.log(respuesta);
 
     id.value = email.value = password.value = dni.value = '';
+    formulario.classList.remove('was-validated');
 
     listar();
 }
