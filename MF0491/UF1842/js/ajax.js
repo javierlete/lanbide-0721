@@ -29,6 +29,11 @@ async function aceptar(e) {
 
     const usuario = { email: email.value, password: password.value, dni: dni.value };
 
+    if(!dniValido(usuario.dni)) {
+        alert('El DNI es incorrecto');
+        return;
+    }
+
     if (id.value) {
         usuario.id = id.value;
         metodo = 'PUT';
@@ -121,4 +126,17 @@ function activarModal() {
         const aceptar = estasSeguro.querySelector('#modal-aceptar');
         aceptar.href = boton.href;
     });
+}
+
+function dniValido(dni) {
+    const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+
+    if(!/^[XYZ\d]\d{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/.test(dni)) {
+        return false;
+    }
+
+    const numero = +dni.substring(0, 8).replace('X', '0').replace('Y','1').replace('Z','2');
+    const letra = dni[8];
+
+    return letras[numero % 23] === letra;
 }
