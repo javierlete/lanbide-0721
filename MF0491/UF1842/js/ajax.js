@@ -30,7 +30,9 @@ async function aceptar(e) {
     const usuario = { email: email.value, password: password.value, dni: dni.value };
 
     if(!dniValido(usuario.dni)) {
-        alert('El DNI es incorrecto');
+        // alert('El DNI es incorrecto');
+        dni.setCustomValidity('El DNI no es correcto');
+        formulario.reportValidity();
         return;
     }
 
