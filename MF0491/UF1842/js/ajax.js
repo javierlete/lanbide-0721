@@ -1,7 +1,7 @@
 'use strict';
 
 const url = 'http://localhost:3000/usuarios/';
-let listado, id, email, password, formulario, estasSeguro;
+let listado, id, email, password, dni, formulario, estasSeguro;
 
 document.addEventListener('DOMContentLoaded', async function () {
     estasSeguro = document.getElementById('estasSeguro');
@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     id = document.getElementById('id');
     email = document.getElementById('email');
     password = document.getElementById('password');
+    dni = document.getElementById('dni');
 
     formulario.addEventListener('submit', aceptar);
 
@@ -26,7 +27,7 @@ async function aceptar(e) {
 
     let metodo;
 
-    const usuario = { email: email.value, password: password.value };
+    const usuario = { email: email.value, password: password.value, dni: dni.value };
 
     if (id.value) {
         usuario.id = id.value;
@@ -47,9 +48,7 @@ async function aceptar(e) {
 
     console.log(respuesta);
 
-    id.value = '';
-    email.value = '';
-    password.value = '';
+    id.value = email.value = password.value = dni.value = '';
 
     listar();
 }
@@ -69,6 +68,7 @@ async function listar() {
         tr.innerHTML = `
             <th>${usuario.id}</th>
             <td>${usuario.email}</td>
+            <td>${usuario.dni}</td>
             <td> 
                 <a class="btn btn-primary" href="javascript:editar(${usuario.id})">Editar</a>
                 <a class="btn btn-danger" data-id="${usuario.id}" data-bs-toggle="modal" data-bs-target="#estasSeguro" href="javascript:borrar(${usuario.id})">Borrar</a>
@@ -86,6 +86,7 @@ async function editar(idSeleccionado) {
     id.value = usuario.id;
     email.value = usuario.email;
     password.value = usuario.password;
+    dni.value = usuario.dni;
 }
 
 async function borrar(id) {

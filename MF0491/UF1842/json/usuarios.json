@@ -1,14 +1,16 @@
 {
   "usuarios": [
     {
-      "id": 1,
       "email": "javier@lete.net",
-      "password": "contra"
+      "password": "contra1!asdf!Aa1",
+      "dni": "Y2345678Z",
+      "id": 1
     },
     {
       "email": "pepe@perez.net",
       "password": "pepillo",
-      "id": 2
+      "id": 2,
+      "dni": "12345678Z"
     }
   ]
 }
