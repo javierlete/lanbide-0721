@@ -11,6 +11,24 @@
       "password": "pepillo",
       "id": 2,
       "dni": "12345678Z"
+    },
+    {
+      "email": "prueba@pruebez.net",
+      "password": "Prueba!1A",
+      "dni": "12345678Z",
+      "id": 3
+    },
+    {
+      "email": "modificado@otrez.net",
+      "password": "Otro!Aa1",
+      "dni": "12345678Z",
+      "id": 5
+    },
+    {
+      "email": "a@b",
+      "password": "asdfasdfA!2",
+      "dni": "12345678Z",
+      "id": 6
     }
   ]
 }
