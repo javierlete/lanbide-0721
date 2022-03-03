@@ -6,14 +6,20 @@ var $formulario;
 
 $(function () {
     $formulario = $('#formulario');
-    
+
     $formulario.on('submit', aceptar);
 
     $('#dni').on('change', cambioDni);
 
     activarModal();
 
-    listar();
+    listar().then(function () {
+        $('table').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+            }
+        });
+    });
 });
 
 function cambioDni() {
@@ -38,7 +44,7 @@ function aceptar(e) {
 
     var usuario = { email: email.value, password: password.value, dni: dni.value };
 
-    var id = +$('#id').val();
+    var id = $('#id').val();
 
     if (id) {
         usuario.id = id;
@@ -64,7 +70,7 @@ function aceptar(e) {
 }
 
 function listar() {
-    $.getJSON(url, function (usuarios) {
+    return $.getJSON(url, function (usuarios) {
         console.log(usuarios);
 
         $('#listado tbody').empty();
@@ -79,12 +85,6 @@ function listar() {
                 '    <a class="btn btn-danger" data-id="' + this.id + '" data-bs-toggle="modal" data-bs-target="#estasSeguro" href="javascript:borrar(' + this.id + ')">Borrar</a>' +
                 '</td>' +
                 '</tr>').appendTo('#listado tbody');
-        });
-
-        $('table').DataTable({
-            language: {
-                url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
-            }
         });
     });
 }
