@@ -25,10 +25,16 @@
       "id": 5
     },
     {
-      "email": "a@b",
-      "password": "asdfasdfA!2",
+      "email": "nuevo@nuevez.net",
+      "password": "Nuevo1Aa!",
       "dni": "12345678Z",
       "id": 6
+    },
+    {
+      "email": "a@b",
+      "password": "asdfghjk1A!",
+      "dni": "Y2345678Z",
+      "id": 7
     }
   ]
 }
