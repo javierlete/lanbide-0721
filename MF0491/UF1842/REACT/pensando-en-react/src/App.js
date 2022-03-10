@@ -1,7 +1,8 @@
 import './App.css';
+import { FilterableProductTable } from './componentes/FilterableProductTable';
 
 function App() {
-  return (<h1>Hola Mundo</h1>);
+  return (<FilterableProductTable />);
 }
 
 export default App;
