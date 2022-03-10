@@ -7,15 +7,31 @@ export class FilterableProductTable extends React.Component {
         super();
         this.state = { filterText: 'ba', inStockOnly: true };
     }
+
+    handleFilterTextChanged(text) {
+        this.setState({
+            filterText: text
+        });
+    }
+
+    handleInStockOnlyChanged(checked) {
+        this.setState({
+            inStockOnly: checked
+        });
+    }
+
     render() {
         const filterText = this.state.filterText;
         const inStockOnly = this.state.inStockOnly;
+
         return (
             <div>
-                <SearchBar 
-                    filterText={filterText} inStockOnly = {inStockOnly} />
-                <ProductTable products={this.props.products} 
-                    filterText={filterText} inStockOnly = {inStockOnly}/>
+                <SearchBar
+                    filterText={filterText} inStockOnly={inStockOnly}
+                    filterTextChanged={(text) => this.handleFilterTextChanged(text)}
+                    inStockOnlyChanged={(checked) => this.handleInStockOnlyChanged(checked)} />
+                <ProductTable products={this.props.products}
+                    filterText={filterText} inStockOnly={inStockOnly} />
             </div>
         );
     }
