@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Pensando en React",
+  "name": "Ejemplo de aplicación de React de Pensando en React",
   "icons": [
     {
       "src": "favicon.ico",
