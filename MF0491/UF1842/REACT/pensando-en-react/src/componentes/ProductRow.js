@@ -5,9 +5,9 @@ export class ProductRow extends React.Component {
         const product = this.props.product;
         
         return (
-            <tr className={!product.stocked ? 'table-danger' : ''}>
+            <tr className={!product.stocked ? 'table-danger' : 'table-success'}>
                 <td>{product.name}</td>
-                <td>{product.price}</td>
+                <td class="text-end">{product.price}</td>
             </tr>
         );
     }
