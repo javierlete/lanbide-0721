@@ -5,7 +5,7 @@ import { ProductTable } from './ProductTable';
 export class FilterableProductTable extends React.Component {
     constructor() {
         super();
-        this.state = { filterText: 'ba', inStockOnly: true };
+        this.state = { filterText: '', inStockOnly: false };
     }
 
     handleFilterTextChanged(text) {

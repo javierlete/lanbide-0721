@@ -30,8 +30,8 @@ export class ProductTable extends React.Component {
         });
 
         return (
-            <table>
-                <thead>
+            <table class="mt-3 table table-striped table-hovered table-border">
+                <thead class="table-dark">
                     <tr>
                         <th>Name</th>
                         <th>Price</th>

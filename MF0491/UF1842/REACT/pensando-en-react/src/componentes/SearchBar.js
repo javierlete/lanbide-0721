@@ -7,13 +7,12 @@ export class SearchBar extends React.Component {
 
         return (
             <form>
-                <input type="text" placeholder="Search..." value={filterText}
+                <input class="form-control" type="text" placeholder="Search..." value={filterText}
                     onChange={(e) => this.props.filterTextChanged(e.target.value)} />
-                <p>
-                    <input type="checkbox" checked={inStockOnly}
+                <p class="form-check mt-3">
+                    <input id="in-stock" class="form-check-input" type="checkbox" checked={inStockOnly}
                         onChange={(e) => this.props.inStockOnlyChanged(e.target.checked)} />
-                    
-                    Only show products in stock
+                    <label class="form-check-label" for="in-stock">Only show products in stock</label>
                 </p>
             </form>
         );

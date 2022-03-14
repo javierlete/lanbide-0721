@@ -6,7 +6,7 @@ export class ProductCategoryRow extends React.Component {
         const category = this.props.category;
 
         return (
-            <tr>
+            <tr className="table-secondary">
                 <th colSpan="2">
                     {category}
                 </th>
