@@ -1,0 +1,7 @@
+h1::before {
+  content: "contenido-";
+}
+
+.contenido {
+  grid-area: contenido;
+}

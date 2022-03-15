@@ -1,0 +1,9 @@
+.principal h1::before {
+  content: "principal-";
+}
+
+.principal {
+  grid-area: principal;
+
+  background-color: blue;
+}

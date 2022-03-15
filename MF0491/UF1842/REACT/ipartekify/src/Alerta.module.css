@@ -1,0 +1,9 @@
+h1::before {
+  content: "alerta-";
+}
+
+.alerta {
+  grid-area: alerta;
+
+  background-color: red;
+}
