@@ -1,5 +1,9 @@
-h1::before {
-  content: 'app-';
+.contenido {
+  height: 100%;
+}
+
+.contenido div {
+  padding: 1rem;
 }
 
 .contenido {

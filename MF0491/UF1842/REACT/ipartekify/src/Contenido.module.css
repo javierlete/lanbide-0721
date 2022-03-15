@@ -1,7 +1,5 @@
-h1::before {
-  content: "contenido-";
-}
-
 .contenido {
   grid-area: contenido;
+
+  background-color: var(--color-fondo-contenido);
 }

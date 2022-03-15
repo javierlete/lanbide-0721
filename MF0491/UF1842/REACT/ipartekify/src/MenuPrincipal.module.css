@@ -1,9 +1,17 @@
-.principal h1::before {
-  content: "principal-";
+.principal {
+  grid-area: principal;
 }
 
 .principal {
-  grid-area: principal;
+  display: flex;
+  flex-direction: column;
+}
 
-  background-color: blue;
+.principal nav:last-of-type {
+  margin-top: auto;
+}
+
+.principal nav li {
+  list-style: none;
+  padding: 0.25em 0;
 }
