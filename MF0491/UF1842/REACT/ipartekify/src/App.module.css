@@ -18,7 +18,7 @@
     'alerta alerta';
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .contenido {
     grid-template-rows: repeat(3, auto) 1fr;
     grid-template-columns: 1fr;

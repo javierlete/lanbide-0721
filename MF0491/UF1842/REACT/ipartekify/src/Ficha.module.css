@@ -1,0 +1,41 @@
+.ficha {
+    background-color: var(--color-fondo-secundario);
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+}
+
+.ficha, .ficha img {
+    border-radius: 0.25rem;
+}
+
+.ficha img {
+    order: -1;
+}
+
+.ficha h4 {
+    margin: 1rem 0 0.25rem;
+}
+
+.ficha h5 {
+    color: var(--color-tinta-secundario);
+    margin: 0.25rem 0;
+}
+
+.ficha:hover {
+    background-color: var(--color-fondo-terciario);
+    transition: background-color 0.5s;
+}
+
+.ficha:hover img {
+    box-shadow: 0 1rem 3rem black;
+    transition: box-shadow 0.5s;
+}
+
+/* TODO Arreglar la visualización y ocultación del botón de play cuando se hace hover en la ficha */
+
+.ficha:hover .play {
+    background-color: red;
+}

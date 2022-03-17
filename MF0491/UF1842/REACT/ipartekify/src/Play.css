@@ -1,0 +1,10 @@
+.play svg {
+    position: absolute;
+    bottom: 6rem;
+    right: 1.5rem; 
+    background-color: lightgreen;
+    border-radius: 5rem;
+    padding: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+}

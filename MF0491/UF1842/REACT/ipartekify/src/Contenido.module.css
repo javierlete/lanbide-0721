@@ -2,4 +2,7 @@
   grid-area: contenido;
 
   background-color: var(--color-fondo-contenido);
+
+  display: flex;
+  flex-direction: column;
 }

@@ -1,0 +1,12 @@
+.fichas {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    gap: 1rem;
+}
+
+.galeria h3 {
+    color: var(--color-tinta-secundario);
+}

@@ -1,8 +1,13 @@
 import estilo from './Contenido.module.css';
+import Galeria from './Galeria';
 
 export default function Contenido() {
     return (
         <div class={estilo.contenido}>
-            <h1>Contenido</h1>
+            <Galeria />
+            <Galeria />
+            <Galeria />
+            <Galeria />
+            <Galeria />
         </div>);
 }

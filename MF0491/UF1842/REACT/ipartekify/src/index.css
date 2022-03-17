@@ -1,9 +1,15 @@
 :root {
   --color-tinta: white;
+  --color-tinta-secundario: gray;
+  --color-fondo-terciario: rgb(54, 54, 54);
   --color-fondo-contenido: rgb(63, 63, 63);
   --color-fondo-secundario: rgb(31, 31, 31);
   --color-fondo: black;
   --color-fondo-alerta: rgb(255, 47, 81);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html, body, #root {
