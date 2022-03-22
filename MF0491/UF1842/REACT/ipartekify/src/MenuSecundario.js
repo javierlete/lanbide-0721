@@ -8,13 +8,13 @@ export default function MenuSecundario() {
         <nav>
             <ul>
                 <li>
-                    <a href="#">
-                        <FontAwesomeIcon icon={solid('arrow-left')} />
+                    <a href="/">
+                        <FontAwesomeIcon icon={solid('arrow-left')} title="Anterior" />
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <FontAwesomeIcon icon={solid('arrow-right')} />
+                    <a href="/">
+                        <FontAwesomeIcon icon={solid('arrow-right')} title="Posterior" />
                     </a>
                 </li>
                 <li>

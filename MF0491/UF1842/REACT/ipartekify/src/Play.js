@@ -5,7 +5,7 @@ import './Play.css';
 export default function Play() {
     return (
         <div class="play">
-            <FontAwesomeIcon icon={solid('play')} />
+            <FontAwesomeIcon icon={solid('play')} title="Reproducir" />
         </div>
     );
 }

@@ -116,7 +116,7 @@ main() {
                 <audio src="audios/horse.ogv" controls></audio>
 
                 <div class="contenedor ratio-4-3">
-                    <iframe
+                    <iframe title="Google Maps de Ipartek"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762081766561!2d-2.9155446506146623!3d43.25640788601674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1643725827745!5m2!1ses!2ses"
                         width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
@@ -127,7 +127,7 @@ main() {
                         allowfullscreen></iframe>
                 </div>
                 <div class="contenedor ratio-4-3">
-                    <iframe style="border-radius:12px"
+                    <iframe title="Lista de Spotify de..." style="border-radius:12px"
                         src="https://open.spotify.com/embed/album/6nNlTIiFd3J06W0rJiiwlz?utm_source=generator"
                         allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
@@ -201,29 +201,30 @@ main() {
                     <fieldset id="pruebas">
                         <legend>Pruebas</legend>
 
-                        <input type="number" step=".01" min="0" max="100">
+                        <input aria-label="Ejemplo número" type="number" step=".01" min="0" max="100">
 
-                        <input type="date">
-                        <input type="time">
-                        <input type="datetime-local">
+                        <input aria-label="Ejemplo date" type="date">
+                        <input aria-label="Ejemplo time" type="time">
+                        <input aria-label="Ejemplo datetime" type="datetime-local">
 
-                        <input type="checkbox">
+                        <input aria-label="Ejemplo checkbox" type="checkbox">
 
-                        <input type="radio" name="radios">
-                        <input type="radio" name="radios">
+                        <input aria-label="Ejemplo radios1" type="radio" name="radios">
+                        <input aria-label="Ejemplo radios2" type="radio" name="radios">
 
-                        <select>
-                            <option value="1">Uno</option>
-                            <option value="2">Dos</option>
-                            <option value="3">Tres</option>
-                        </select>
-                        <select multiple>
+                        <select aria-label="Ejemplo desplegable">
                             <option value="1">Uno</option>
                             <option value="2">Dos</option>
                             <option value="3">Tres</option>
                         </select>
 
-                        <textarea cols="30" rows="10"></textarea>
+                        <select multiple aria-label="Ejemplo cuadro de lista">
+                            <option value="1">Uno</option>
+                            <option value="2">Dos</option>
+                            <option value="3">Tres</option>
+                        </select>
+
+                        <textarea aria-label="Ejemplo cuadro multilínea" cols="30" rows="10"></textarea>
                     </fieldset>
                 </form>
             </section>
@@ -244,6 +245,7 @@ main() {
         <div id="arriba">
             <a href="#">
                 <i class="fa-solid fa-arrow-up"></i>
+                <span style="display: none">Arriba</span>
             </a>
         </div>
     </footer>
