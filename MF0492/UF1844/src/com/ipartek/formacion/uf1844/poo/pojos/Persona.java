@@ -2,14 +2,16 @@ package com.ipartek.formacion.uf1844.poo.pojos;
 // Plain Old Java Objects
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 // Representa las características de una persona
 public class Persona {
 
 	// Constantes
-	private static final int MAYORIA_DE_EDAD = 18;
-	private static final String DESCONOCIDO = "<DESCONOCIDO>";
-	private static final int MINIMO_CARACTERES_NOMBRE = 3;
+	public static final int MAYORIA_DE_EDAD = 18;
+	public static final String DESCONOCIDO = "<DESCONOCIDO>";
+	public static final int MINIMO_CARACTERES_NOMBRE = 3;
+	public static final LocalDate FECHA_POR_DEFECTO = null;
 
 	// Variable estática ("de clase")
 	private static int edadJubilacion = 65;
@@ -27,11 +29,11 @@ public class Persona {
 	}
 	
 	public Persona(Long id, String nombre) {
-		this(id, nombre, null);
+		this(id, nombre, FECHA_POR_DEFECTO);
 	}
 	
 	public Persona() {
-		this(1L, DESCONOCIDO, null);
+		this(1L, DESCONOCIDO, FECHA_POR_DEFECTO);
 	}
 
 	// Getters y setters (públicos)
@@ -90,6 +92,34 @@ public class Persona {
 	public static void setEdadJubilacion(int edadJubilacion) {
 		Persona.edadJubilacion = edadJubilacion;
 	}
+	
+	
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(fechaNacimiento, id, nombre);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(id, other.id)
+				&& Objects.equals(nombre, other.nombre);
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Persona [id=" + id + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + "]";
+	}
+
 	// Métodos de instancia
 	public String aTexto() {
 		return id + ", " + nombre + ", " + fechaNacimiento;
