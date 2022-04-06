@@ -5,6 +5,8 @@ import java.util.Objects;
 
 public class Empleado extends Persona {
 
+	private static final long serialVersionUID = 3091259550523849101L;
+	
 	private String numeroSeguridadSocial;
 
 	public Empleado(Long id, String nombre, LocalDate fechaNacimiento, String numeroSeguridadSocial) {

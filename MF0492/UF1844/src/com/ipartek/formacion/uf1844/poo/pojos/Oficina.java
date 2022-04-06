@@ -1,11 +1,17 @@
 package com.ipartek.formacion.uf1844.poo.pojos;
 
+import java.io.Serializable;
 import java.util.HashSet;
 
-public class Oficina {
+public class Oficina implements Serializable {
 
+	private static final long serialVersionUID = -3252870650085849971L;
+	
 	private Long id;
 	private String ciudad;
+
+	//private Persona[] personas = new Persona[30];
+	private HashSet<Persona> personas = new HashSet<>();
 
 	public Oficina(Long id, String ciudad) {
 		setId(id);
@@ -16,8 +22,6 @@ public class Oficina {
 		this(null, ciudad);
 	}
 	
-	//private Persona[] personas = new Persona[30];
-	private HashSet<Persona> personas = new HashSet<>();
 
 	public Long getId() {
 		return id;

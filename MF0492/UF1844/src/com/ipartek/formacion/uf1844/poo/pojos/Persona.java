@@ -1,12 +1,14 @@
 package com.ipartek.formacion.uf1844.poo.pojos;
 // Plain Old Java Objects
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 // Representa las características de una persona
-public class Persona {
+public class Persona implements Serializable {
 
+	private static final long serialVersionUID = -5475338861398955576L;
 	// Constantes
 	public static final int MAYORIA_DE_EDAD = 18;
 	public static final String DESCONOCIDO = "<DESCONOCIDO>";
@@ -43,7 +45,7 @@ public class Persona {
 
 	public void setId(Long id) {
 		if (id == null || id <= 0L) {
-			throw new RuntimeException("El ID debe ser 1 o más");
+			throw new PojosException("El ID debe ser 1 o más");
 		}
 
 		this.id = id;
@@ -55,7 +57,7 @@ public class Persona {
 
 	public void setNombre(String nombre) {
 		if (nombre == null) {
-			throw new RuntimeException("Se debe rellenar el nombre");
+			throw new PojosException("Se debe rellenar el nombre");
 		}
 
 		/*
@@ -66,7 +68,7 @@ public class Persona {
 		nombre = nombre.trim();
 
 		if (nombre.length() < MINIMO_CARACTERES_NOMBRE) {
-			throw new RuntimeException("El nombre debe tener al menos 3 caracteres");
+			throw new PojosException("El nombre debe tener al menos 3 caracteres");
 		}
 
 		this.nombre = nombre;
@@ -78,7 +80,7 @@ public class Persona {
 
 	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		if (fechaNacimiento != null && fechaNacimiento.isAfter(LocalDate.now().minusYears(MAYORIA_DE_EDAD))) {
-			throw new RuntimeException("Debe ser mayor de edad");
+			throw new PojosException("Debe ser mayor de edad");
 		}
 		
 		this.fechaNacimiento = fechaNacimiento;
