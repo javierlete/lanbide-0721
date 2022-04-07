@@ -50,6 +50,22 @@ public class Oficina implements Serializable {
 	public Iterable<Persona> getPersonas() {
 		return personas;
 	}
+	
+	public Persona getPersona(Long id) {
+		for(Persona p: personas) {
+			if(p.getId() == id) {
+				return p;
+			}
+		}
+		
+		return null;
+		
+//		return personas.stream().filter(p -> p.getId() == id).findFirst().orElse(null);
+	}
+	
+	public void borrarPersona(Long id) {
+		personas.remove(getPersona(id));
+	}
 }
 
 
