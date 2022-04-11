@@ -6,15 +6,7 @@ import com.ipartek.formacion.uf1844.poo.pojos.*;
 
 public class DaoPersona implements Dao<Persona> {
 
-	private static final TreeMap<Long, Persona> personas = new TreeMap<>() {
-		private static final long serialVersionUID = 8577547240047673794L;
-
-		{
-			put(1L, new Persona(1L, "Javier"));
-			put(2L, new Persona(2L, "Pepe"));
-			put(3L, new Persona(3L, "Juan"));
-		}
-	};
+	private static final TreeMap<Long, Persona> personas = new TreeMap<>();
 	
 	// Patrón Singleton
 	private DaoPersona() {}

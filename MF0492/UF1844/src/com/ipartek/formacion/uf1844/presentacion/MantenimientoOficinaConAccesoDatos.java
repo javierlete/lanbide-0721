@@ -6,8 +6,10 @@ import com.ipartek.formacion.uf1844.accesodatos.*;
 import com.ipartek.formacion.uf1844.poo.pojos.*;
 
 public class MantenimientoOficinaConAccesoDatos {
-	private static Dao<Persona> dao = DaoPersona.getInstancia();
+	private static final Dao<Persona> dao = DaoPersona.getInstancia();
 
+	private static final Backupable<Persona> backupable = new BackupFichero<Persona>("personas.dat");
+	
 	public static void main(String[] args) {
 		int opcion;
 
@@ -37,8 +39,26 @@ public class MantenimientoOficinaConAccesoDatos {
 		case 4:
 			borrar();
 			break;
+		case 5:
+			backup();
+			break;
+		case 6:
+			restore();
+			break;
 		default:
 			ple("No existe dicha opción");
+		}
+	}
+
+	private static void backup() {
+		backupable.backup(dao.obtenerTodos());
+	}
+
+	private static void restore() {
+		Iterable<Persona> personas = backupable.restore();
+		
+		for(Persona p: personas) {
+			dao.modificar(p); // dao.insertar(p);
 		}
 	}
 
@@ -59,17 +79,12 @@ public class MantenimientoOficinaConAccesoDatos {
 
 		Persona persona = new Persona();
 
-		pedirId(persona);
 		pedirNombre(persona);
 		pedirFechaNacimiento(persona);
 
 		dao.insertar(persona);
 
 		mostrarPersona(persona);
-	}
-
-	private static void pedirId(Persona persona) {
-		persona.setId(leerLong("Id"));
 	}
 
 	private static void pedirNombre(Persona persona) {
@@ -127,6 +142,8 @@ public class MantenimientoOficinaConAccesoDatos {
 		pl("2. Añadir");
 		pl("3. Modificar");
 		pl("4. Borrar");
+		pl("5. Backup");
+		pl("6. Restore");
 		pl("0. Salir");
 	}
 }
