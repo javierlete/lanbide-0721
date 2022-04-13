@@ -71,7 +71,10 @@ public class MantenimientoOficinaConAccesoDatos {
 	}
 
 	private static void mostrarPersona(Persona p) {
-		pl(p);
+		pl("Id: \t\t\t" + p.getId());
+		pl("Nombre: \t\t" + p.getNombre());
+		pl("Fecha de nacimiento: \t" + p.getFechaNacimiento());
+		pl();
 	}
 
 	private static void agregar() {

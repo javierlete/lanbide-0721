@@ -8,6 +8,10 @@ public class Consola {
 	private static final Scanner sc = new Scanner(System.in);
 	private static DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	
+	public static void pl() {
+		System.out.println();
+	}
+	
 	public static void pl(Object o) {
 		System.out.println(o);
 	}
