@@ -13,10 +13,12 @@ public class EjemploSwingDesigner {
 	private JLabel lblResultado;
 	private JPanel panel;
 	private JPanel panelComplejos;
+	@SuppressWarnings("rawtypes")
 	private JComboBox comboBox;
 	private JCheckBox chckbxNewCheckBox;
 	private JToggleButton tglbtnNewToggleButton;
 	private JButton btnCombo;
+	@SuppressWarnings("rawtypes")
 	private JList list;
 	private JTable table;
 
@@ -68,6 +70,7 @@ public class EjemploSwingDesigner {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes", "serial" })
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 513, 503);
