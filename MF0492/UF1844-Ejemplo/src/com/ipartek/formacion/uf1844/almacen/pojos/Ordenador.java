@@ -19,6 +19,8 @@ public class Ordenador {
 		setPrecio(precio);
 	}
 	
+	public Ordenador() {}
+
 	public Long getId() {
 		return id;
 	}
@@ -35,12 +37,20 @@ public class Ordenador {
 		return modelo;
 	}
 	public void setModelo(String modelo) {
+		if(modelo.trim().length() < 2) {
+			throw new PojosException("No se admiten modelos de menos de dos caracteres");
+		}
+		
 		this.modelo = modelo;
 	}
 	public LocalDate getFechaFabricacion() {
 		return fechaFabricacion;
 	}
 	public void setFechaFabricacion(LocalDate fechaFabricacion) {
+		if(fechaFabricacion.isBefore(LocalDate.of(1970, 1, 1))) {
+			throw new PojosException("No se admiten fechas de fabricación anteriores a 1970");
+		}
+		
 		this.fechaFabricacion = fechaFabricacion;
 	}
 
@@ -49,6 +59,10 @@ public class Ordenador {
 	}
 
 	public void setPrecio(BigDecimal precio) {
+		if(precio.compareTo(BigDecimal.ZERO) < 0) {
+			throw new PojosException("No se admiten precios menores que cero");
+		}
+		
 		this.precio = precio;
 	}
 

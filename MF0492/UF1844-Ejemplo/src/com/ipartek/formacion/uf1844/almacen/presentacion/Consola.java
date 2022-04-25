@@ -3,7 +3,6 @@ package com.ipartek.formacion.uf1844.almacen.presentacion;
 import static com.ipartek.formacion.uf1844.almacen.bibliotecas.Consola.*;
 
 import java.math.*;
-import java.time.*;
 
 import com.ipartek.formacion.uf1844.almacen.accesodatos.*;
 import com.ipartek.formacion.uf1844.almacen.pojos.*;
@@ -97,64 +96,94 @@ public class Consola {
 
 	private static void buscarPorId() {
 		Long id = leerLong("Dime el id a buscar");
-		
+
 		mostrarId(id);
 	}
 
 	private static void insertar() {
 		Ordenador ordenador = consola2Ordenador(SIN_ID);
-		
+
 		dao.insertar(ordenador);
 	}
 
 	private static void modificar() {
 		Ordenador ordenador = consola2Ordenador(CON_ID);
-		
+
 		dao.modificar(ordenador);
 	}
-	
+
 	private static Ordenador consola2Ordenador(boolean conId) {
-		Long id;
-		
-		if(conId) {
-			id = leerLong("Id");
-		} else {
-			id = null;
+		Ordenador ordenador = new Ordenador();
+
+		if (conId) {
+			ordenador.setId(leerLong("Id"));
 		}
+
+		ordenador.setMarca(leerString("Marca"));
+
+		boolean correcto = false;
+
+		do {
+			try {
+				ordenador.setModelo(leerString("Modelo"));
+				correcto = true;
+			} catch (Exception e) {
+				ple(e.getMessage());
+			}
+		} while (!correcto);
+
+		correcto = false;
+
+		do {
+			try {
+				ordenador.setFechaFabricacion(leerLocalDate("Fecha de fabricación"));
+				correcto = true;
+			} catch (Exception e) {
+				ple(e.getMessage());
+			}
+		} while (!correcto);
+
+		correcto = false;
+
+		do {
+			try {
+				ordenador.setPrecio(leerBigDecimal("Precio"));
+				correcto = true;
+			} catch (Exception e) {
+				ple(e.getMessage());
+			}
+		} while (!correcto);
 		
-		String marca = leerString("Marca");
-		String modelo = leerString("Modelo");
-		LocalDate fecha = leerLocalDate("Fecha de fabricación");
-		BigDecimal precio = leerBigDecimal("Precio");
-		
-		Ordenador ordenador = new Ordenador(id, marca, modelo, fecha, precio);
 		return ordenador;
 	}
 
-	
-
 	private static void borrar() {
 		Long id = leerLong("Dime el id a borrar");
-		
+
 		dao.borrar(id);
 	}
 
 	private static void buscarPorMarca() {
 		String marca = leerString("Texto a buscar en la marca");
-		
+
 		mostrarTodos(dao.buscarPorMarca(marca));
 	}
 
 	private static void buscarPorPrecio() {
 		BigDecimal minimo = leerBigDecimal("Mínimo");
 		BigDecimal máximo = leerBigDecimal("Máximo");
-		
+
 		mostrarTodos(dao.buscarPorPrecio(minimo, máximo));
 	}
 
 	private static void mostrarId(long id) {
-		pl(dao.obtenerPorId(id));
-		pl();
+		Ordenador ordenador = dao.obtenerPorId(id);
+
+		if (ordenador != null) {
+			pl(ordenador);
+		} else {
+			pl("No se ha encontrado el ordenador con ese id");
+		}
 	}
 
 	private static void mostrarTodos() {
@@ -164,7 +193,7 @@ public class Consola {
 
 		pl();
 	}
-	
+
 	private static void mostrarTodos(Iterable<Ordenador> ordenadores) {
 		for (Ordenador ordenador : ordenadores) {
 			pl(ordenador);
