@@ -27,5 +27,11 @@ public class DaoOrdenadorMemoria implements DaoOrdenador {
 	public Iterable<Ordenador> obtenerTodos() {
 		return ordenadores.values();
 	}
+
+	@Override
+	public Ordenador obtenerPorId(Long id) {
+		return ordenadores.get(id);
+	}
+	
 	
 }
