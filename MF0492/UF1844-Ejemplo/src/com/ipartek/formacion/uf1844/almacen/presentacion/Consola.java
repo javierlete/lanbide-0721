@@ -1,9 +1,12 @@
 package com.ipartek.formacion.uf1844.almacen.presentacion;
 
+import static com.ipartek.formacion.uf1844.almacen.bibliotecas.Consola.*;
+
+import java.math.*;
+import java.time.*;
+
 import com.ipartek.formacion.uf1844.almacen.accesodatos.*;
 import com.ipartek.formacion.uf1844.almacen.pojos.*;
-
-import static com.ipartek.formacion.uf1844.almacen.bibliotecas.Consola.*;
 
 public class Consola {
 
@@ -11,6 +14,21 @@ public class Consola {
 	
 	public static void main(String[] args) {
 		mostrarId(2L);
+		mostrarTodos();
+		
+		dao.insertar(new Ordenador(null, "Lenovo", "Thinkpad", LocalDate.now(), new BigDecimal("700")));
+		
+		mostrarTodos();
+		
+		Ordenador ordenador = dao.obtenerPorId(1L);
+		ordenador.setPrecio(new BigDecimal("2000"));
+		
+		dao.modificar(ordenador);
+		
+		mostrarTodos();
+		
+		dao.borrar(3L);
+		
 		mostrarTodos();
 	}
 

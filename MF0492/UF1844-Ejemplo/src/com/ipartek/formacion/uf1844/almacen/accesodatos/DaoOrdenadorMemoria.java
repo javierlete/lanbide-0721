@@ -32,6 +32,21 @@ public class DaoOrdenadorMemoria implements DaoOrdenador {
 	public Ordenador obtenerPorId(Long id) {
 		return ordenadores.get(id);
 	}
-	
-	
+
+	@Override
+	public void insertar(Ordenador ordenador) {
+		Long id = ordenadores.size() > 0 ? ordenadores.lastKey() + 1L : 1L;
+		ordenador.setId(id);
+		ordenadores.put(id, ordenador);
+	}
+
+	@Override
+	public void modificar(Ordenador ordenador) {
+		ordenadores.put(ordenador.getId(), ordenador);
+	}
+
+	@Override
+	public void borrar(Long id) {
+		ordenadores.remove(id);
+	}
 }
