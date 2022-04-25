@@ -1,5 +1,6 @@
 package com.ipartek.formacion.uf1844.almacen.bibliotecas;
 
+import java.math.*;
 import java.time.*;
 import java.time.format.*;
 import java.util.*;
@@ -40,6 +41,16 @@ public class Consola {
 				return Long.parseLong(leerString(mensaje));
 			} catch (NumberFormatException e) {
 				ple("No es un Long, por favor introducelo de nuevo");
+			}
+		} while (true);
+	}
+	
+	public static BigDecimal leerBigDecimal(String mensaje) {
+		do {
+			try {
+				return new BigDecimal(leerString(mensaje));
+			} catch (NumberFormatException e) {
+				ple("No es un número con decimales, por favor introducelo de nuevo");
 			}
 		} while (true);
 	}
