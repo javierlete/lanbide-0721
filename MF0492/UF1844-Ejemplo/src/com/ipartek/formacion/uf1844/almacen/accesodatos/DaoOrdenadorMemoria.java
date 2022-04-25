@@ -49,4 +49,25 @@ public class DaoOrdenadorMemoria implements DaoOrdenador {
 	public void borrar(Long id) {
 		ordenadores.remove(id);
 	}
+
+	@Override
+	public Iterable<Ordenador> buscarPorMarca(String marca) {
+		return ordenadores.values().stream().filter(o -> o.getMarca().contains(marca)).toList();
+	}
+
+	@Override
+	public Iterable<Ordenador> buscarPorPrecio(BigDecimal minimo, BigDecimal maximo) {
+		ArrayList<Ordenador> filtrados = new ArrayList<>();
+		
+		for(Ordenador o: ordenadores.values()) {
+			// if(o.getPrecio() >= minimo && o.getPrecio() <= maximo)
+			if(o.getPrecio().compareTo(minimo) >= 0 && o.getPrecio().compareTo(maximo) <= 0) {
+				filtrados.add(o);
+			}
+		}
+		
+		return filtrados;
+	}
+	
+	
 }

@@ -30,6 +30,15 @@ public class Consola {
 		dao.borrar(3L);
 		
 		mostrarTodos();
+		
+		for(Ordenador o: dao.buscarPorMarca("e")) {
+			pl(o);
+		}
+		
+		for(Ordenador o: dao.buscarPorPrecio(new BigDecimal("800"), new BigDecimal("1200"))) {
+			pl(o);
+		}
+		
 	}
 
 	private static void mostrarId(long id) {
