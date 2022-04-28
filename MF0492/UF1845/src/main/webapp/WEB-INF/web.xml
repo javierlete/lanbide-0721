@@ -19,4 +19,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Calculadora</display-name>
+    <servlet-name>Calculadora</servlet-name>
+    <servlet-class>com.ipartek.formacion.uf1845.servlets.Calculadora</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Calculadora</servlet-name>
+    <url-pattern>/Calculadora</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LibroServlet</display-name>
+    <servlet-name>LibroServlet</servlet-name>
+    <servlet-class>com.ipartek.formacion.uf1845.servlets.LibroServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LibroServlet</servlet-name>
+    <url-pattern>/LibroServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
