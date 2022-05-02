@@ -4,7 +4,7 @@ import java.io.*;
 import java.math.*;
 import java.util.*;
 
-import com.ipartek.formacion.uf1845.modelo.*;
+import com.ipartek.formacion.uf1845.modelos.*;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;

@@ -1,4 +1,4 @@
-package com.ipartek.formacion.uf1845.modelo;
+package com.ipartek.formacion.uf1845.modelos;
 
 import java.math.*;
 import java.util.*;

@@ -39,4 +39,24 @@
     <servlet-name>LibroServlet</servlet-name>
     <url-pattern>/LibroServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.ipartek.formacion.uf1845.controladores.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PrincipalServlet</display-name>
+    <servlet-name>PrincipalServlet</servlet-name>
+    <servlet-class>com.ipartek.formacion.uf1845.controladores.PrincipalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PrincipalServlet</servlet-name>
+    <url-pattern>/PrincipalServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
