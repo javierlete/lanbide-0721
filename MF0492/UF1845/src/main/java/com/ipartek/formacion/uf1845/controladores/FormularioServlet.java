@@ -1,7 +1,6 @@
 package com.ipartek.formacion.uf1845.controladores;
 
 import java.io.*;
-import java.math.*;
 
 import com.ipartek.formacion.uf1845.dal.*;
 import com.ipartek.formacion.uf1845.modelos.*;
@@ -36,11 +35,16 @@ public class FormularioServlet extends HttpServlet {
 		String isbn = request.getParameter("isbn");
 		String precio = request.getParameter("precio");
 		
-		Long idLong = id.trim().length() > 0 ? Long.parseLong(id) : null;
+		Libro libro = new Libro(id, titulo, autor, isbn, precio);
 		
-		Libro libro = new Libro(idLong, titulo, autor, isbn, new BigDecimal(precio));
+		if(libro.tieneErrores()) {
+			request.setAttribute("libro", libro);
+			request.getRequestDispatcher("/WEB-INF/vistas/formulario.jsp").forward(request, response);
+			
+			return;
+		}
 		
-		if(idLong == null) {
+		if(libro.getId() == null) {
 			dao.insertar(libro);
 		} else {
 			dao.modificar(libro);

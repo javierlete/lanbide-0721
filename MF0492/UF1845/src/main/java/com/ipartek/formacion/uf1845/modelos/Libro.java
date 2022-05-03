@@ -11,6 +11,16 @@ public class Libro {
 	private String isbn;
 	private BigDecimal precio;
 	
+	private TreeMap<String, String> errores = new TreeMap<>();
+	
+	public Libro(String id, String titulo, String autor, String isbn, String precio) {
+		setId(id);
+		setTitulo(titulo);
+		setAutor(autor);
+		setIsbn(isbn);
+		setPrecio(precio);
+	}
+	
 	public Libro(Long id, String titulo, String autor, String isbn, BigDecimal precio) {
 		setId(id);
 		setTitulo(titulo);
@@ -26,12 +36,29 @@ public class Libro {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	public void setId(String id) {
+		if(id.trim().length() == 0) {
+			setId((Long)null);
+			return;
+		}
+		
+		try {
+			setId(Long.parseLong(id));
+		} catch (Exception e) {
+			errores.put("id", "No es un número");
+		}
+	}
 
 	public String getTitulo() {
 		return titulo;
 	}
 
 	public void setTitulo(String titulo) {
+		if(titulo == null || titulo.trim().length() < 3) {
+			errores.put("titulo", "El título debe tener más de 3 caracteres");
+		}
+		
 		this.titulo = titulo;
 	}
 
@@ -40,6 +67,15 @@ public class Libro {
 	}
 
 	public void setAutor(String autor) {
+		if(autor != null && autor.trim().length() != 0 && autor.trim().length() < 3) {
+			errores.put("autor", "El autor tiene un nombre demasiado corto");
+		}
+		
+		if(autor == null || autor.trim().length() == 0) {
+			this.autor = "ANÓNIMO";
+			return;
+		}
+		
 		this.autor = autor;
 	}
 
@@ -56,9 +92,28 @@ public class Libro {
 	}
 
 	public void setPrecio(BigDecimal precio) {
+		if(precio.compareTo(BigDecimal.ZERO) < 0) {
+			errores.put("precio", "El precio no puede ser negativo");
+		}
 		this.precio = precio;
 	}
+	
+	public void setPrecio(String precio) {
+		try {
+			setPrecio(new BigDecimal(precio));
+		} catch (Exception e) {
+			errores.put("precio", "No es un número");
+		}
+	}
 
+	public TreeMap<String, String> getErrores() {
+		return errores;
+	}
+
+	public boolean tieneErrores() {
+		return errores.size() > 0;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(autor, id, isbn, precio, titulo);

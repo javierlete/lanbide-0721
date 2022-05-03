@@ -34,7 +34,7 @@ public class LibroServlet extends HttpServlet {
 		String isbn = request.getParameter("isbn");
 		String precio = request.getParameter("precio");
 
-		Libro libro = new Libro(null, titulo, autor, isbn, null);
+		Libro libro = new Libro(null, titulo, autor, isbn, (BigDecimal)null);
 		
 		try {
 			libro.setId(Long.parseLong(id));
