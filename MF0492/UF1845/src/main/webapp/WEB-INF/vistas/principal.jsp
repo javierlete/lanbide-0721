@@ -20,6 +20,7 @@
 				<th>Autor</th>
 				<th>ISBN</th>
 				<th>Precio</th>
+				<th>Opciones</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -30,6 +31,10 @@
 					<td>${libro.autor}</td>
 					<td>${libro.isbn}</td>
 					<td>${libro.precio}</td>
+					<td>
+						<a href="formulario?id=${libro.id}">Editar</a>
+						<a href="borrar?id=${libro.id}">Borrar</a>
+					</td>
 				</tr>
 			</c:forEach>
 
@@ -43,6 +48,18 @@
 
 			<%-- 		<% } %> --%>
 		</tbody>
+		<tfoot>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<a href="formulario">Añadir</a>
+				</td>
+			</tr>
+		</tfoot>
 	</table>
 
 </body>

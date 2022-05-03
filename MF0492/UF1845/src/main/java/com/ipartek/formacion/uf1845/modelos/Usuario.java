@@ -8,10 +8,9 @@ public class Usuario {
 	private String password;
 	
 	public Usuario(Long id, String email, String password) {
-		super();
-		this.id = id;
-		this.email = email;
-		this.password = password;
+		setId(id);
+		setEmail(email);
+		setPassword(password);
 	}
 
 	public Long getId() {
