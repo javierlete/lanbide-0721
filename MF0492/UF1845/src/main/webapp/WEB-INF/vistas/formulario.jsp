@@ -15,8 +15,8 @@
 		<div class="row mb-3">
 			<label for="titulo" class="col-sm-2 col-form-label">Título</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="titulo" value="${libro.titulo}">
-				<span class="text-danger">${libro.errores.titulo}</span>
+				<input type="text" class="form-control ${libro.errores.titulo != null ? 'is-invalid' : '' }" name="titulo" value="${libro.titulo}">
+				<div class="invalid-feedback">${libro.errores.titulo}</div>
 			</div>
 		</div>
 		<div class="row mb-3">
@@ -36,8 +36,8 @@
 		<div class="row mb-3">
 			<label for="precio" class="col-sm-2 col-form-label">Precio</label>
 			<div class="col-sm-10">
-				<input type="number" step=".01" class="form-control" name="precio" value="${libro.precio}">
-				<span class="text-danger">${libro.errores.precio}</span>
+				<input type="number" step=".01" class="form-control ${libro.errores.precio != null ? 'is-invalid' : '' }" name="precio" value="${libro.precio}">
+				<div class="invalid-feedback">${libro.errores.precio}</div>
 			</div>
 		</div>
 		<div class="row mb-3">
