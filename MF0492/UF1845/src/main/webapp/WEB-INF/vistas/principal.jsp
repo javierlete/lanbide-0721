@@ -11,6 +11,7 @@
 	<h1>Principal</h1>
 
 	<h2>${usuario.email}</h2>
+	<p><a href="desconectar">Desconectar</a></p>
 
 	<table>
 		<thead>
