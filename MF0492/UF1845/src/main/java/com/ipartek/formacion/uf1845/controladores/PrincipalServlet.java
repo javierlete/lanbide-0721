@@ -8,7 +8,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
-@WebServlet("/principal")
+@WebServlet("/admin/principal")
 public class PrincipalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

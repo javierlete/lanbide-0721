@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("usuario", usuario);
 			
 			// Saltar a la vista
-			response.sendRedirect("principal");
+			response.sendRedirect("admin/principal");
 		}
 	}
 	

@@ -8,7 +8,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
-@WebServlet("/borrar")
+@WebServlet("/admin/borrar")
 public class BorrarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -9,7 +9,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
-@WebServlet("/formulario")
+@WebServlet("/admin/formulario")
 public class FormularioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
