@@ -1,20 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Formulario</title>
-
-<link rel="stylesheet" href="../css/bootstrap.min.css" />
-<script src="../js/bootstrap.bundle.min.js"></script>
-
-</head>
-<body class="container">
+<%@ include file="/WEB-INF/vistas/includes/cabecera.jsp" %>
 
 	<h1>Formulario</h1>
 
-	<form action="formulario" method="post">
+	<form action="admin/formulario" method="post">
 		<div class="row mb-3">
 			<label for="id" class="col-sm-2 col-form-label">Id</label>
 			<div class="col-sm-10">
@@ -57,5 +47,4 @@
 		</div>
 	</form>
 
-</body>
-</html>
+<%@ include file="/WEB-INF/vistas/includes/pie.jsp" %>

@@ -1,17 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- import="com.ipartek.formacion.uf1845.modelo.*" --%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Login</title>
-
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<script src="js/bootstrap.bundle.min.js"></script>
-
-</head>
-<body class="container">
+<%@ include file="/WEB-INF/vistas/includes/cabecera.jsp" %>
 
 	<form action="login" method="post">
 		<fieldset>
@@ -41,6 +30,4 @@
 		</fieldset>
 	</form>
 
-
-</body>
-</html>
+<%@ include file="/WEB-INF/vistas/includes/pie.jsp" %>
