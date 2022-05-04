@@ -4,8 +4,8 @@
 <%@ include file="/WEB-INF/vistas/includes/cabecera.jsp" %>
 	<h1>Principal</h1>
 
-	<table class="table table-hover table-striped table-bordered">
-		<thead class="table-dark">
+	<table class="table table-sm table-hover table-striped table-bordered">
+		<thead>
 			<tr>
 				<th>Id</th>
 				<th>Título</th>
@@ -40,7 +40,7 @@
 
 			<%-- 		<% } %> --%>
 		</tbody>
-		<tfoot class="table-dark">
+		<tfoot>
 			<tr>
 				<td></td>
 				<td></td>
@@ -53,5 +53,11 @@
 			</tr>
 		</tfoot>
 	</table>
+	
+	<script>
+		$(function () {
+		    $('table').DataTable();
+		} );
+	</script>
 
 <%@ include file="/WEB-INF/vistas/includes/pie.jsp" %>
