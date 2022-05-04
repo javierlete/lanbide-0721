@@ -1,31 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Formulario</title>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<script src="../js/bootstrap.bundle.min.js"></script>
+
 </head>
-<body>
+<body class="container">
 
-<h1>Formulario</h1>
+	<h1>Formulario</h1>
 
-<pre>${libro}</pre>
-
-<form action="formulario" method="post">
-	<input type="number" name="id" value="${libro.id}" readonly placeholder="Id" />
-	<span>${libro.errores.id}</span>
-	<input type="text" name="titulo" value="${libro.titulo}" placeholder="Título" />
-	<span>${libro.errores.titulo}</span>
-	<input type="text" name="autor" value="${libro.autor}" placeholder="Autor" />
-	<span>${libro.errores.autor}</span>
-	<input type="text" name="isbn" value="${libro.isbn}" placeholder="ISBN" />
-	<span>${libro.errores.isbn}</span>
-	<input type="number" step=".01" name="precio" value="${libro.precio}" placeholder="Precio" />
-	<span>${libro.errores.precio}</span>
-	
-	<button>Guardar</button>
-</form>
+	<form action="formulario" method="post">
+		<div class="row mb-3">
+			<label for="id" class="col-sm-2 col-form-label">Id</label>
+			<div class="col-sm-10">
+				<input type="number" class="form-control" name="id" value="${libro.id}" readonly >
+				<span class="text-danger">${libro.errores.id}</span>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<label for="titulo" class="col-sm-2 col-form-label">Título</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="titulo" value="${libro.titulo}">
+				<span class="text-danger">${libro.errores.titulo}</span>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<label for="autor" class="col-sm-2 col-form-label">Autor</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="autor" value="${libro.autor}">
+				<span class="text-danger">${libro.errores.autor}</span>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<label for="isbn" class="col-sm-2 col-form-label">ISBN</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="isbn" value="${libro.isbn}">
+				<span class="text-danger">${libro.errores.isbn}</span>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<label for="precio" class="col-sm-2 col-form-label">Precio</label>
+			<div class="col-sm-10">
+				<input type="number" step=".01" class="form-control" name="precio" value="${libro.precio}">
+				<span class="text-danger">${libro.errores.precio}</span>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="offset-sm-2 col-sm-10">
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</div>
+		</div>
+	</form>
 
 </body>
 </html>
