@@ -4,7 +4,7 @@
 
 	<h1>Formulario</h1>
 
-	<form action="admin/formulario" method="post">
+	<form class="necesita-validacion" novalidate action="admin/formulario" method="post">
 		<div class="row mb-3">
 			<label for="id" class="col-sm-2 col-form-label">Id</label>
 			<div class="col-sm-10">
@@ -15,8 +15,8 @@
 		<div class="row mb-3">
 			<label for="titulo" class="col-sm-2 col-form-label">Título</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control ${libro.errores.titulo != null ? 'is-invalid' : '' }" name="titulo" value="${libro.titulo}">
-				<div class="invalid-feedback">${libro.errores.titulo}</div>
+				<input required type="text" class="form-control ${libro.errores.titulo != null ? 'is-invalid' : '' }" name="titulo" value="${libro.titulo}">
+				<div class="invalid-feedback">${libro.errores.titulo == null ? 'El título es requerido' : libro.errores.titulo}</div>
 			</div>
 		</div>
 		<div class="row mb-3">
@@ -46,5 +46,26 @@
 			</div>
 		</div>
 	</form>
-
+	<script>
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function () {
+		  'use strict'
+		
+		  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+		  var forms = document.querySelectorAll('.necesita-validacion')
+		
+		  // Loop over them and prevent submission
+		  Array.prototype.slice.call(forms)
+		    .forEach(function (form) {
+		      form.addEventListener('submit', function (event) {
+		        if (!form.checkValidity()) {
+		          event.preventDefault()
+		          event.stopPropagation()
+		        }
+		
+		        form.classList.add('was-validated')
+		      }, false)
+		    })
+		})();
+	</script>
 <%@ include file="/WEB-INF/vistas/includes/pie.jsp" %>
