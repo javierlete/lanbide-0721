@@ -21,7 +21,7 @@ public class LoginFilter extends HttpFilter {
 		Usuario usuario = (Usuario)session.getAttribute("usuario");
 		
 		if(usuario == null) {
-			res.sendRedirect("../login");
+			res.sendRedirect(req.getContextPath() + "/login");
 			return;
 		}
 		

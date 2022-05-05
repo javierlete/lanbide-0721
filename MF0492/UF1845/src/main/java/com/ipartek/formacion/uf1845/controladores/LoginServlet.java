@@ -39,10 +39,11 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/vistas/login.jsp").forward(request, response);
 		} else {
 			// Empaquetar modelo para la vista
-			request.getSession().setAttribute("usuario", usuario);
+			HttpSession session = request.getSession();
+			session.setAttribute("usuario", validado);
 			
 			// Saltar a la vista
-			response.sendRedirect("admin/principal");
+			response.sendRedirect(request.getContextPath() + "/admin/principal");
 		}
 	}
 	
