@@ -6,11 +6,14 @@
 	<c:forEach items="${libros}" var="libro">
 		<div class="col">
 			<div class="card h-100">
-				<img src="http://placeimg.com/240/320/any?${libro.id}" class="card-img-top" alt="...">
+				<img src="http://placeimg.com/480/640/any?${libro.id}" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h5 class="card-title">${libro.titulo}</h5>
 					<p class="card-text text-end">
 						<fmt:formatNumber type="currency" value="${libro.precio}" />
+					</p>
+					<p class="card-text text-end">
+						<a href="detalle?id=${libro.id}" class="btn btn-primary stretched-link">Añadir al carrito</a>
 					</p>
 				</div>
 				<div class="card-footer">
