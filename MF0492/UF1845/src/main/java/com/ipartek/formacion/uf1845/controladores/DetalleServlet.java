@@ -1,20 +1,17 @@
 package com.ipartek.formacion.uf1845.controladores;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import static com.ipartek.formacion.uf1845.configuracion.Globales.*;
 
-import com.ipartek.formacion.uf1845.dal.*;
+import java.io.*;
+
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.*;
+import jakarta.servlet.http.*;
 
 @WebServlet("/detalle")
 public class DetalleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private static final DaoLibros dao = DaoLibrosMemoria.getInstancia();
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		

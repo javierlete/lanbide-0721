@@ -1,8 +1,9 @@
 package com.ipartek.formacion.uf1845.controladores;
 
+import static com.ipartek.formacion.uf1845.configuracion.Globales.*;
+
 import java.io.*;
 
-import com.ipartek.formacion.uf1845.dal.*;
 import com.ipartek.formacion.uf1845.modelos.*;
 
 import jakarta.servlet.*;
@@ -15,8 +16,6 @@ maxFileSize = 1024 * 1024 * 5,
 maxRequestSize = 1024 * 1024 * 5 * 5)
 public class FormularioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	private static final DaoLibros dao = DaoLibrosMemoria.getInstancia();
 
 	private static final String UPLOAD_DIRECTORY = "uploads";
 	

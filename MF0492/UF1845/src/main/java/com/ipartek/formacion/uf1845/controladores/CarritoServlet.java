@@ -1,9 +1,10 @@
 package com.ipartek.formacion.uf1845.controladores;
 
+import static com.ipartek.formacion.uf1845.configuracion.Globales.*;
+
 import java.io.*;
 import java.util.*;
 
-import com.ipartek.formacion.uf1845.dal.*;
 import com.ipartek.formacion.uf1845.modelos.*;
 
 import jakarta.servlet.*;
@@ -14,8 +15,6 @@ import jakarta.servlet.http.*;
 public class CarritoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final DaoLibros dao = DaoLibrosMemoria.getInstancia();
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String opcion = request.getParameter("opcion");
