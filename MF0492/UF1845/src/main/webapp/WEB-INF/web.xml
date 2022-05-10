@@ -4,7 +4,4 @@
   <welcome-file-list>
     <welcome-file>index</welcome-file>
   </welcome-file-list>
-  <listener>
-    <listener-class>com.ipartek.formacion.uf1845.controladores.SesionListener</listener-class>
-  </listener>
 </web-app>
