@@ -4,7 +4,7 @@
 
 	<h1>Formulario</h1>
 
-	<form class="necesita-validacion" novalidate action="admin/formulario" method="post">
+	<form class="necesita-validacion" novalidate action="admin/formulario" method="post" enctype="multipart/form-data">
 		<div class="row mb-3">
 			<label for="id" class="col-sm-2 col-form-label">Id</label>
 			<div class="col-sm-10">
@@ -38,6 +38,12 @@
 			<div class="col-sm-10">
 				<input type="number" step=".01" class="form-control ${libro.errores.precio != null ? 'is-invalid' : '' }" name="precio" value="${libro.precio}">
 				<div class="invalid-feedback">${libro.errores.precio}</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<label for="imagen" class="col-sm-2 col-form-label">Imagen</label>
+			<div class="col-sm-10">
+				<input type="file" class="form-control" name="imagen">
 			</div>
 		</div>
 		<div class="row mb-3">

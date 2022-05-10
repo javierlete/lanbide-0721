@@ -6,7 +6,7 @@
 	<c:forEach items="${libros}" var="libro">
 		<div class="col">
 			<div class="card h-100">
-				<img src="http://placeimg.com/480/640/any?${libro.id}" class="card-img-top" alt="...">
+				<img src="uploads/${libro.id}.jpg" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h5 class="card-title">${libro.titulo}</h5>
 					<p class="card-text text-end">

@@ -10,10 +10,15 @@ import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
 @WebServlet("/admin/formulario")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024,
+maxFileSize = 1024 * 1024 * 5, 
+maxRequestSize = 1024 * 1024 * 5 * 5)
 public class FormularioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private static final DaoLibros dao = DaoLibrosMemoria.getInstancia();
+
+	private static final String UPLOAD_DIRECTORY = "uploads";
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,9 +50,25 @@ public class FormularioServlet extends HttpServlet {
 		}
 		
 		if(libro.getId() == null) {
-			dao.insertar(libro);
+			libro = dao.insertar(libro);
 		} else {
 			dao.modificar(libro);
+		}
+		
+		String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+		File uploadDir = new File(uploadPath);
+		if (!uploadDir.exists()) uploadDir.mkdir();
+		
+		String fileName;
+		
+		for (Part part : request.getParts()) {
+		    fileName = part.getSubmittedFileName();
+		    
+		    System.out.println(fileName);
+		    
+		    if(fileName != null && fileName.trim().length() > 0) {
+		    	part.write(uploadPath + File.separator + libro.getId() + ".jpg"); // fileName);
+		    }
 		}
 		
 		response.sendRedirect("principal");
