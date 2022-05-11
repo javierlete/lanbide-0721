@@ -28,6 +28,10 @@ public class Libro {
 		setIsbn(isbn);
 		setPrecio(precio);
 	}
+	
+	Libro() {
+		
+	}
 
 	public Long getId() {
 		return id;
