@@ -1,19 +1,12 @@
 package com.ipartek.formacion.uf1845.dal;
 
-import java.math.*;
 import java.util.*;
 
 import com.ipartek.formacion.uf1845.modelos.*;
 
 public class DaoLibrosMemoria implements DaoLibros {
 
-	private static final TreeMap<Long, Libro> libros = new TreeMap<>();
-
-	static {
-		for (long i = 1; i <= 100; i++) {
-			libros.put(i, new Libro(i, "Libro" + i, "Autor" + i, "ISBN" + i, new BigDecimal(i)));
-		}
-	}
+	static final TreeMap<Long, Libro> libros = new TreeMap<>();
 
 	// SINGLETON
 	private DaoLibrosMemoria() {
