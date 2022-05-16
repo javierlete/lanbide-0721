@@ -40,6 +40,10 @@ public class DaoLibrosMemoria implements DaoLibros {
 
 	@Override
 	public Libro modificar(Libro libro) {
+		if(!libros.containsKey(libro.getId())) {
+			throw new DalException("No existe el libro a modificar " + libro.getId());
+		}
+		
 		libros.put(libro.getId(), libro);
 
 		return libro;
@@ -47,6 +51,10 @@ public class DaoLibrosMemoria implements DaoLibros {
 
 	@Override
 	public void borrar(Long id) {
+		if(!libros.containsKey(id)) {
+			throw new DalException("No existe el libro a borrar " + id);
+		}
+		
 		libros.remove(id);
 	}
 

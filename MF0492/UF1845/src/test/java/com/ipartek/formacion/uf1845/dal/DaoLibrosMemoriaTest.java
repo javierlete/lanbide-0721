@@ -80,6 +80,12 @@ public class DaoLibrosMemoriaTest {
 		dao.modificar(libro);
 
 		assertEquals(libro, dao.obtenerPorId(2L));
+		
+		libro.setId(MAX_REGISTROS + 1L);
+		
+		assertThrows(DalException.class, () -> {
+			dao.modificar(libro);
+		});
 	}
 
 	@Test
@@ -87,6 +93,10 @@ public class DaoLibrosMemoriaTest {
 		dao.borrar(3L);
 		
 		assertNull(dao.obtenerPorId(3L));
+		
+		assertThrows(DalException.class, () -> {
+			dao.borrar(MAX_REGISTROS + 2L);
+		});
 	}
 
 }
