@@ -36,6 +36,7 @@
 				<td></td>
 				<td>
 					<a class="btn btn-primary" href="index">Añadir</a>
+					<a class="btn btn-warning" href="factura">Facturar</a>
 				</td>
 			</tr>
 		</tfoot>

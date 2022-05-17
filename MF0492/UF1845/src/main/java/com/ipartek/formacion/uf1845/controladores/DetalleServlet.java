@@ -15,7 +15,7 @@ public class DetalleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		
-		request.setAttribute("libro", dao.obtenerPorId(Long.parseLong(id)));
+		request.setAttribute("libro", daoLibros.obtenerPorId(Long.parseLong(id)));
 		request.getRequestDispatcher("/WEB-INF/vistas/detalle.jsp").forward(request, response);
 	}
 

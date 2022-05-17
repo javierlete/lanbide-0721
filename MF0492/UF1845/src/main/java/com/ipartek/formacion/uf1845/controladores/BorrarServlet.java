@@ -15,7 +15,7 @@ public class BorrarServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		
-		dao.borrar(Long.parseLong(id));
+		daoLibros.borrar(Long.parseLong(id));
 		
 		response.sendRedirect("principal");
 	}

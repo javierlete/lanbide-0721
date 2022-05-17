@@ -25,7 +25,7 @@ public class CarritoServlet extends HttpServlet {
 		
 		switch (opcion) {
 		case "agregar":
-			carrito.add(dao.obtenerPorId(Long.parseLong(id)));
+			carrito.add(daoLibros.obtenerPorId(Long.parseLong(id)));
 		case "ver":
 			request.getRequestDispatcher("/WEB-INF/vistas/carrito.jsp").forward(request, response);
 			break;

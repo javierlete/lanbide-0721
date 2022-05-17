@@ -1,5 +1,6 @@
 package com.ipartek.formacion.uf1845.dal;
 
+import java.math.*;
 import java.util.*;
 
 import com.ipartek.formacion.uf1845.modelos.*;
@@ -10,6 +11,9 @@ public class DaoLibrosMemoria implements DaoLibros {
 
 	// SINGLETON
 	private DaoLibrosMemoria() {
+		for (long i = 1; i <= 10; i++) {
+			libros.put(i, new Libro(i, "Libro" + i, "Autor" + i, "ISBN" + i, new BigDecimal(i)));
+		}
 	}
 
 	private static final DaoLibrosMemoria INSTANCIA = new DaoLibrosMemoria();

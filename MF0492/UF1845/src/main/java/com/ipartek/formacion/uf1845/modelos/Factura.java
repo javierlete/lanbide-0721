@@ -23,7 +23,13 @@ public class Factura {
 	}
 	
 	public BigDecimal getPrecio() {
-		throw new RuntimeException("NO está implementado");
+		BigDecimal precio = BigDecimal.ZERO;
+		
+		for(Linea linea: lineas) {
+			precio = precio.add(linea.getPrecio());
+		}
+		
+		return precio;
 	}
 	
 	public BigDecimal getIva() {

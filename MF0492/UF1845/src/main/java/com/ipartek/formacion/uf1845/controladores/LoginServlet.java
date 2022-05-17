@@ -49,6 +49,7 @@ public class LoginServlet extends HttpServlet {
 	
 	private Usuario validarUsuario(Usuario usuario) {
 		if("javier@lete.net".equals(usuario.getEmail()) && "contra".equals(usuario.getPassword())) {
+			usuario.setId(1L);
 			return usuario;
 		}
 		

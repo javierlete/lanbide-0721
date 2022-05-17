@@ -24,7 +24,7 @@ public class FormularioServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		
 		if(id != null) {
-			Libro libro = dao.obtenerPorId(Long.parseLong(id));
+			Libro libro = daoLibros.obtenerPorId(Long.parseLong(id));
 			request.setAttribute("libro", libro);
 		}
 		
@@ -49,9 +49,9 @@ public class FormularioServlet extends HttpServlet {
 		}
 		
 		if(libro.getId() == null) {
-			libro = dao.insertar(libro);
+			libro = daoLibros.insertar(libro);
 		} else {
-			dao.modificar(libro);
+			daoLibros.modificar(libro);
 		}
 		
 		String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
