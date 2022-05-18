@@ -22,7 +22,7 @@
 					<td>${libro.isbn}</td>
 					<td>${libro.precio}</td>
 					<td>
-						<a class="btn btn-danger" href="admin/borrar?id=${libro.id}">Borrar</a>
+						<a class="btn btn-danger" href="carrito?opcion=quitar&id=${libro.id}">Quitar</a>
 					</td>
 				</tr>
 			</c:forEach>

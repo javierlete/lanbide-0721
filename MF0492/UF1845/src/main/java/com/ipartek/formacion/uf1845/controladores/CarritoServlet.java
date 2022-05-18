@@ -24,14 +24,18 @@ public class CarritoServlet extends HttpServlet {
 		ArrayList<Libro> carrito = (ArrayList<Libro>) request.getSession().getAttribute("carrito");
 		
 		switch (opcion) {
+		case "quitar":
+			carrito.remove(daoLibros.obtenerPorId(Long.parseLong(id)));
+			break;
 		case "agregar":
 			carrito.add(daoLibros.obtenerPorId(Long.parseLong(id)));
 		case "ver":
-			request.getRequestDispatcher("/WEB-INF/vistas/carrito.jsp").forward(request, response);
 			break;
 		default:
 			throw new ServletException("No tengo esa opción");
 		}
+		
+		request.getRequestDispatcher("/WEB-INF/vistas/carrito.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
