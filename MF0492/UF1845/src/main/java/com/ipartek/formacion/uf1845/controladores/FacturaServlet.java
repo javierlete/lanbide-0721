@@ -14,27 +14,36 @@ import jakarta.servlet.http.*;
 @WebServlet("/factura")
 public class FacturaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		@SuppressWarnings("unchecked")
-		ArrayList<Libro> carrito = (ArrayList<Libro>)request.getSession().getAttribute("carrito");
-		Usuario usuario = (Usuario)request.getSession().getAttribute("usuario");
+		ArrayList<Libro> carrito = (ArrayList<Libro>) request.getSession().getAttribute("carrito");
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+
+		if (usuario == null) {
+			request.setAttribute("mensaje", "Debes iniciar sesión para facturar");
+			request.getRequestDispatcher("/login").forward(request, response);
+			return;
+		}
+
 		Long id = usuario.getId();
-		
+
 		Cliente cliente = Globales.daoClientes.obtenerPorId(id);
-		
+
 		Factura factura = new Factura(null, LocalDate.now(), "001", cliente);
-		
-		for(Libro libro: carrito) {
+
+		for (Libro libro : carrito) {
 			factura.getLineas().add(new Linea(libro, 1));
 		}
-		
+
 		request.setAttribute("factura", factura);
-		
+
 		request.getRequestDispatcher("/WEB-INF/vistas/factura.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

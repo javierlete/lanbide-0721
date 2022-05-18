@@ -27,20 +27,19 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link" href="index">Inicio</a>
+					<li class="nav-item"><a class="nav-link" href="index">Inicio</a>
 					</li>
 				</ul>
 				<span class="navbar-text">${sessionScope.usuario.email}</span>
 				<ul class="navbar-nav mb-2 mb-lg-0">
-					<li class="nav-item">
-						<c:if test="${sessionScope.usuario == null}">
+					<li class="nav-item"><c:if
+							test="${sessionScope.usuario == null}">
 							<a class="nav-link" href="login">Login</a>
-						</c:if>
-						<c:if test="${sessionScope.usuario != null}">
+						</c:if> <c:if test="${sessionScope.usuario != null}">
 							<a class="nav-link" href="admin/desconectar">Desconectar</a>
-						</c:if>
-					</li>
+						</c:if></li>
+					<li class="nav-item"><a class="nav-link"
+						href="carrito?opcion=ver">Carrito</a></li>
 				</ul>
 			</div>
 		</div>
