@@ -1,4 +1,4 @@
-package com.ipartek.formacion.uf1845.pruebas;
+package com.ipartek.formacion.uf1845.configuracion;
 
 import com.paypal.core.*;
 
@@ -10,6 +10,6 @@ public class Credentials {
 	private static PayPalEnvironment environment = new PayPalEnvironment.Sandbox(clientId, secret);
 
 	// Creating a client for the environment
-	static PayPalHttpClient client = new PayPalHttpClient(environment);
+	public static PayPalHttpClient client = new PayPalHttpClient(environment);
 
 }

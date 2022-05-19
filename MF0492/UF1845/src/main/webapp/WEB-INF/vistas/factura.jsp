@@ -2,38 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/vistas/includes/cabecera.jsp"%>
 
-<!-- Replace "test" with your own sandbox Business account app client ID -->
-<script src="https://www.paypal.com/sdk/js?client-id=AaFce3GSUi8_VReV_xuhFLU9QCTFlvKe7z75z75M8G7BxCPKJ73BZQ-Ca_hs07Y1xZFJR6faQxRPdA6v&currency=EUR"></script>
-<!-- Set up a container element for the button -->
-<div id="paypal-button-container"></div>
-<script>
-      paypal.Buttons({
-        // Sets up the transaction when a payment button is clicked
-        createOrder: (data, actions) => {
-          return actions.order.create({
-            purchase_units: [{
-              amount: {
-                value: '${factura.total}' // Can also reference a variable or function
-              }
-            }]
-          });
-        },
-        // Finalize the transaction after payer approval
-        onApprove: (data, actions) => {
-          return actions.order.capture().then(function(orderData) {
-            // Successful capture! For dev/demo purposes:
-            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-            const transaction = orderData.purchase_units[0].payments.captures[0];
-            alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
-            // When ready to go live, remove the alert and show a success message within this page. For example:
-            // const element = document.getElementById('paypal-button-container');
-            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-            // Or go to another URL:  actions.redirect('thank_you.html');
-          });
-        }
-      }).render('#paypal-button-container');
-    </script>
-
 <div class="d-flex">
 	<div>
 		<h2>LibroApp Enterprise</h2>
@@ -60,7 +28,6 @@
 				class="table table-sm table-hover table-striped table-bordered">
 				<thead>
 					<tr>
-						<th class="text-end">Id</th>
 						<th>Título</th>
 						<th>Autor</th>
 						<th>ISBN</th>
@@ -74,7 +41,6 @@
 				<tbody>
 					<c:forEach items="${factura.lineas}" var="linea">
 						<tr>
-							<th class="text-end">${linea.libro.id}</th>
 							<td>${linea.libro.titulo}</td>
 							<td>${linea.libro.autor}</td>
 							<td>${linea.libro.isbn}</td>
@@ -93,7 +59,6 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>

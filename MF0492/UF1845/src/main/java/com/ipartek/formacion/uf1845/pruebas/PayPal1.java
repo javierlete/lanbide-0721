@@ -3,6 +3,7 @@ package com.ipartek.formacion.uf1845.pruebas;
 import java.io.*;
 import java.util.*;
 
+import com.ipartek.formacion.uf1845.configuracion.*;
 import com.paypal.http.*;
 import com.paypal.http.exceptions.*;
 import com.paypal.orders.*;
