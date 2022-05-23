@@ -55,4 +55,25 @@ public class DaoUsuarioMemoria implements DaoUsuario {
 		usuarios.remove(id);
 	}
 
+	@Override
+	public Usuario obtenerUsuarioPorEmail(String email) {
+//		Collection<Usuario> usuariosCollection = usuarios.values();
+//		Stream<Usuario> flujoUsuarios = usuariosCollection.stream();
+//		Stream<Usuario> flujoUsuariosEmail = flujoUsuarios.filter(usuario -> usuario.getEmail().equals(email));
+//		Optional<Usuario> usuarioOptional = flujoUsuariosEmail.findFirst();
+//		Usuario usuario = usuarioOptional.orElse(null);
+//		
+//		return usuario;
+		
+//		return usuarios.values().stream().filter(usuario -> usuario.getEmail().equals(email)).findFirst().orElse(null);
+		
+		for(Usuario usuario: usuarios.values()) {
+			if(usuario.getEmail().equals(email)) {
+				return usuario;
+			}
+		}
+		
+		return null;
+	}
+
 }
