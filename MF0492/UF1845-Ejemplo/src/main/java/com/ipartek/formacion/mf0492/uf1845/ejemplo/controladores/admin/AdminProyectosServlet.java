@@ -14,6 +14,7 @@ public class AdminProyectosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("proyectos", Globales.DAO.obtenerTodos());
 		request.getRequestDispatcher(Globales.VISTAS + "/admin/proyectos.jsp").forward(request, response);
 	}
 
