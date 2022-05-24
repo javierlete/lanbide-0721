@@ -1,8 +1,6 @@
 package com.ipartek.formacion.mf0492.uf1845.ejemplo.controladores.admin;
 
 import java.io.*;
-import java.math.*;
-import java.time.*;
 
 import com.ipartek.formacion.mf0492.uf1845.ejemplo.controladores.*;
 import com.ipartek.formacion.mf0492.uf1845.ejemplo.modelos.*;
@@ -56,23 +54,41 @@ public class AdminProyectoServlet extends HttpServlet {
 		Proyecto proyecto = null;
 		
 		if(!op.equals("borrar")) {
-			proyecto = new Proyecto(idLong, nombre, new BigDecimal(presupuesto), LocalDate.parse(inicio), LocalDate.parse(fin));
+			proyecto = new Proyecto(id, nombre, presupuesto, inicio, fin);
+			
+			if(proyecto.getErrores().size() > 0) {
+				request.setAttribute("texto", "Revisa los datos introducidos");
+				request.setAttribute("nivel", "danger");
+				request.setAttribute("proyecto", proyecto);
+				request.setAttribute("op", op);
+				
+				request.getRequestDispatcher(Globales.VISTAS + "/admin/proyecto.jsp").forward(request, response);
+				return;
+			}
 		}
+		
+		String texto = null;
+		String nivel = "success";
 		
 		switch(op) {
 		case "borrar":
 			Globales.DAO.borrar(idLong);
+			texto = "Se ha borrado correctamente el id " + idLong;
 			break;
 		case "editar":
 			Globales.DAO.modificar(proyecto);
+			texto = "Se ha modificado el proyecto " + proyecto.getId();
 			break;
 		case "agregar":
-			Globales.DAO.insertar(proyecto);
+			proyecto = Globales.DAO.insertar(proyecto);
+			texto = "Se ha añadido el proyecto " + proyecto.getId();
 			break;
 		default:
 			throw new RuntimeException("Opción no esperada: " + op);
 		}
 		
-		response.sendRedirect(request.getContextPath() + "/admin/proyectos");
+		request.setAttribute("texto", texto);
+		request.setAttribute("nivel", nivel);
+		request.getRequestDispatcher("/admin/proyectos").forward(request, response);
 	}
 }

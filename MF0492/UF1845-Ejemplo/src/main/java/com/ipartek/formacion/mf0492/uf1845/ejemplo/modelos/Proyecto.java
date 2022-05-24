@@ -11,6 +11,16 @@ public class Proyecto {
 	private LocalDate inicio;
 	private LocalDate fin;
 
+	private Map<String, String> errores = new HashMap<>();
+
+	public Proyecto(String id, String nombre, String presupuesto, String inicio, String fin) {
+		setId(id);
+		setNombre(nombre);
+		setPresupuesto(presupuesto);
+		setInicio(inicio);
+		setFin(fin);
+	}
+
 	public Proyecto(Long id, String nombre, BigDecimal presupuesto, LocalDate inicio, LocalDate fin) {
 		setId(id);
 		setNombre(nombre);
@@ -23,7 +33,24 @@ public class Proyecto {
 		return id;
 	}
 
+	private void setId(String id) {
+		Long idLong = null;
+		
+		if (id != null && id.trim().length() != 0) {
+			try {
+				idLong = Long.parseLong(id);
+			} catch (NumberFormatException e) {
+				errores.put("id", "El id debe ser numérico");
+			}
+		}
+	
+		setId(idLong);
+	}
+
 	public void setId(Long id) {
+		if(id != null && id <= 0) {
+			errores.put("id", "El id debe ser positivo");
+		}
 		this.id = id;
 	}
 
@@ -32,6 +59,9 @@ public class Proyecto {
 	}
 
 	public void setNombre(String nombre) {
+		if(nombre == null || nombre.trim().length() < 3) {
+			errores.put("nombre", "El nombre debe tener 3 caracteres o más");
+		}
 		this.nombre = nombre;
 	}
 
@@ -39,8 +69,39 @@ public class Proyecto {
 		return presupuesto;
 	}
 
+	private void setPresupuesto(String presupuesto) {
+		BigDecimal presupuestoBd = null;
+	
+		if (presupuesto != null && presupuesto.trim().length() != 0) {
+			try {
+				presupuestoBd = new BigDecimal(presupuesto);
+			} catch (Exception e) {
+				errores.put("presupuesto", "El presupuesto debe ser una cantidad decimal");
+			}
+		}
+	
+		setPresupuesto(presupuestoBd);
+	}
+
 	public void setPresupuesto(BigDecimal presupuesto) {
+		if(presupuesto != null && presupuesto.compareTo(BigDecimal.ZERO) < 0) {
+			errores.put("presupuesto", "El presupuesto debe ser 0 o superior");
+		}
 		this.presupuesto = presupuesto;
+	}
+
+	private void setInicio(String inicio) {
+		LocalDate inicioLd = null;
+	
+		if (inicio != null && inicio.trim().length() != 0) {
+			try {
+				inicioLd = LocalDate.parse(inicio);
+			} catch (Exception e) {
+				errores.put("inicio", "El inicio debe ser una fecha");
+			}
+		}
+	
+		setInicio(inicioLd);
 	}
 
 	public LocalDate getInicio() {
@@ -55,8 +116,26 @@ public class Proyecto {
 		return fin;
 	}
 
+	private void setFin(String fin) {
+		LocalDate finLd = null;
+	
+		if (fin != null && fin.trim().length() != 0) {
+			try {
+				finLd = LocalDate.parse(fin);
+			} catch (Exception e) {
+				errores.put("fin", "El fin debe ser una fecha");
+			}
+		}
+	
+		setFin(finLd);
+	}
+
 	public void setFin(LocalDate fin) {
 		this.fin = fin;
+	}
+
+	public Map<String, String> getErrores() {
+		return errores;
 	}
 
 	@Override

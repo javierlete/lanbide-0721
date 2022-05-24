@@ -27,8 +27,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link" href="#">Inicio</a>
-					</li>
+					<li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
 				</ul>
 				<span class="navbar-text">${sessionScope.usuario.email}</span>
 				<ul class="navbar-nav mb-2 mb-lg-0">
@@ -46,4 +45,12 @@
 			</div>
 		</div>
 	</nav>
+	<c:if test="${texto != null}">
+		<div class="alert alert-${nivel} alert-dismissible fade show"
+			role="alert">
+			${texto}
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
+		</div>
+	</c:if>
 	<main class="container">
