@@ -22,8 +22,8 @@
 				<td>${p.inicio}</td>
 				<td>${p.fin}</td>
 				<td>
-					<a class="btn btn-primary btn-sm" href="#">Editar</a>
-					<a class="btn btn-danger btn-sm" href="#">Borrar</a>
+					<a class="btn btn-primary btn-sm" href="admin/proyecto?id=${p.id}&op=editar">Editar</a>
+					<a class="btn btn-danger btn-sm" href="admin/proyecto?id=${p.id}&op=borrar">Borrar</a>
 				</td>
 			</tr>
 		</c:forEach>
@@ -36,7 +36,7 @@
 			<td></td>
 			<td></td>
 			<td>
-				<a class="btn btn-primary btn-sm" href="#">Añadir</a>
+				<a class="btn btn-primary btn-sm" href="admin/proyecto?op=agregar">Añadir</a>
 			</td>
 		</tr>
 	</tfoot>
