@@ -65,11 +65,13 @@ public class Libro {
 		return precio;
 	}
 
-	// TODO Comprobar dos decimales
 	public void setPrecio(String precio) {
 		BigDecimal precioBd = null;
 
 		if (precio != null && precio.trim().length() != 0) {
+			if(!precio.matches("\\d+[,\\.]\\d\\d")) {
+				errores.put("precio", "El precio debe ser positivo y tener dos decimales");
+			}
 			try {
 				precioBd = new BigDecimal(precio);
 			} catch (Exception e) {

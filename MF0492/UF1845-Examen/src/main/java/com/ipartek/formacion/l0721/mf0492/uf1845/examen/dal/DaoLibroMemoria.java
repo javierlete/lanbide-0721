@@ -9,9 +9,9 @@ public class DaoLibroMemoria implements DaoLibro {
 	private static final TreeMap<Long, Libro> libros = new TreeMap<>();
 	
 	static {
-		libros.put(1L, new Libro("1L", "Nombre1", "1234.11", "12"));
-		libros.put(2L, new Libro("2L", "Nombre2", "1234.12", "22"));
-		libros.put(3L, new Libro("3L", "Nombre3", "1234.13", "32"));
+		libros.put(1L, new Libro("1", "Nombre1", "1234.11", "12"));
+		libros.put(2L, new Libro("2", "Nombre2", "1234.12", "22"));
+		libros.put(3L, new Libro("3", "Nombre3", "1234.13", "32"));
 	}
 	
 	// SINGLETON
