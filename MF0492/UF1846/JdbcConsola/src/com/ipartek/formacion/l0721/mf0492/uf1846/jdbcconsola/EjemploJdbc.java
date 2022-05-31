@@ -5,8 +5,9 @@ import java.sql.*;
 public class EjemploJdbc {
 
 	private static final String URL = "jdbc:mysql://localhost:3306/uf1846";
-	private static final String USER = "root";
-	private static final String PASS = "admin";
+	private static final String USER = "uf1846user";
+	private static final String PASS = "uf1846pass";
+	
 	private static final String SQL_SELECT = "SELECT id, email, password FROM usuarios";
 	private static final String SQL_SELECT_ID = "SELECT id, email, password FROM usuarios WHERE id = ?";
 	private static final String SQL_INSERT = "INSERT INTO usuarios (email, password) VALUES (?, ?)";
