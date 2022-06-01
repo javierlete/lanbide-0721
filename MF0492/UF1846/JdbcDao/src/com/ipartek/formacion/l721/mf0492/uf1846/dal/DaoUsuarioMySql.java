@@ -10,17 +10,24 @@ public class DaoUsuarioMySql implements DaoUsuario {
 	private static final String USER = "uf1846user";
 	private static final String PASS = "uf1846pass";
 
-	// SINGLETON
-	private DaoUsuarioMySql() {
-	}
-
-	private static final DaoUsuarioMySql INSTANCIA = new DaoUsuarioMySql();
 	private static final String SQL_SELECT = "SELECT id, email, password FROM usuarios";
 	private static final String SQL_UPDATE = "UPDATE usuarios SET email = ?, password = ? WHERE id = ?";
 	private static final String SQL_SELECT_ID = SQL_SELECT + " WHERE id = ?";
 	private static final String SQL_DELETE = "DELETE FROM usuarios WHERE id = ?";
 	private static final String SQL_INSERT = "INSERT INTO usuarios (email, password) VALUES (?, ?)";
 
+	static {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			throw new DalException("No se ha encontrado el driver de MySQL", e);
+		}
+	}
+	
+	// SINGLETON
+	private DaoUsuarioMySql() {
+	}
+	private static final DaoUsuarioMySql INSTANCIA = new DaoUsuarioMySql();
 	public static DaoUsuarioMySql getInstancia() {
 		return INSTANCIA;
 	}
