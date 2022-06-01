@@ -17,6 +17,9 @@ public class DaoUsuarioMySql implements DaoUsuario {
 	private static final DaoUsuarioMySql INSTANCIA = new DaoUsuarioMySql();
 	private static final String SQL_SELECT = "SELECT id, email, password FROM usuarios";
 	private static final String SQL_UPDATE = "UPDATE usuarios SET email = ?, password = ? WHERE id = ?";
+	private static final String SQL_SELECT_ID = SQL_SELECT + " WHERE id = ?";
+	private static final String SQL_DELETE = "DELETE FROM usuarios WHERE id = ?";
+	private static final String SQL_INSERT = "INSERT INTO usuarios (email, password) VALUES (?, ?)";
 
 	public static DaoUsuarioMySql getInstancia() {
 		return INSTANCIA;
@@ -44,14 +47,42 @@ public class DaoUsuarioMySql implements DaoUsuario {
 
 	@Override
 	public Usuario obtenerPorId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		try (Connection con = DriverManager.getConnection(URL, USER, PASS);
+				PreparedStatement pst = con.prepareStatement(SQL_SELECT_ID);
+				) {
+			pst.setLong(1, id);
+			
+			try (ResultSet rs = pst.executeQuery()) {
+				Usuario usuario = null;
+
+				if (rs.next()) {
+					usuario = new Usuario(rs.getLong("id"), rs.getString("email"), rs.getString("password"));
+				}
+
+				return usuario;
+			}
+		} catch (SQLException e) {
+			throw new DalException("Error al pedir los registros", e);
+		}
 	}
 
 	@Override
-	public Usuario insertar(Usuario objeto) {
-		// TODO Auto-generated method stub
-		return null;
+	public Usuario insertar(Usuario usuario) {
+		try (Connection con = DriverManager.getConnection(URL, USER, PASS);
+				PreparedStatement pst = con.prepareStatement(SQL_INSERT)) {
+			pst.setString(1, usuario.getEmail());
+			pst.setString(2, usuario.getPassword());
+
+			int numeroRegistrosModificados = pst.executeUpdate();
+
+			if (numeroRegistrosModificados != 1) {
+				throw new DalException("Se ha detectado un número de cambios distinto de 1");
+			}
+
+			return usuario;
+		} catch (SQLException e) {
+			throw new DalException("Error al insertar los registros", e);
+		}
 	}
 
 	@Override
@@ -70,14 +101,26 @@ public class DaoUsuarioMySql implements DaoUsuario {
 
 			return usuario;
 		} catch (SQLException e) {
-			throw new DalException("Error al pedir los registros", e);
+			throw new DalException("Error al modificar los registros", e);
 		}
 	}
 
 	@Override
 	public void borrar(Long id) {
-		// TODO Auto-generated method stub
+		try (Connection con = DriverManager.getConnection(URL, USER, PASS);
+				PreparedStatement pst = con.prepareStatement(SQL_DELETE)) {
 
+			pst.setLong(1, id);
+
+			int numeroRegistrosModificados = pst.executeUpdate();
+
+			if (numeroRegistrosModificados != 1) {
+				throw new DalException("Se ha detectado un número de cambios distinto de 1");
+			}
+
+		} catch (SQLException e) {
+			throw new DalException("Error al borrar el registro", e);
+		}
 	}
 
 }

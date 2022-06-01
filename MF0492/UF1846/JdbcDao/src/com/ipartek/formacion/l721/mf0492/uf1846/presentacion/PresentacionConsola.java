@@ -13,5 +13,11 @@ public class PresentacionConsola {
 		for(Usuario u: dao.obtenerTodos()) {
 			System.out.println(u);
 		}
+			
+		dao.insertar(new Usuario(null, "NUEVO12", "SUPERNUEVO"));
+		
+		System.out.println(dao.obtenerPorId(12L));
+		
+		dao.borrar(12L);
 	}
 }
