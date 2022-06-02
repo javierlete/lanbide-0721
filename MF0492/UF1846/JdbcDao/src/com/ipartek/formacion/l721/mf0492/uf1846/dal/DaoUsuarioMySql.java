@@ -11,10 +11,11 @@ public class DaoUsuarioMySql implements DaoUsuario {
 	private static final String PASS = "uf1846pass";
 
 	private static final String SQL_SELECT = "SELECT id, email, password FROM usuarios";
-	private static final String SQL_UPDATE = "UPDATE usuarios SET email = ?, password = ? WHERE id = ?";
-	private static final String SQL_SELECT_ID = SQL_SELECT + " WHERE id = ?";
+	private static final String SQL_SELECT_ID = "SELECT * FROM usuarios u, roles r WHERE r.id = u.roles_id AND u.id = ?";
+
+	private static final String SQL_INSERT = "INSERT INTO usuarios (email, password, roles_id) VALUES (?, ?, ?)";
+	private static final String SQL_UPDATE = "UPDATE usuarios SET email = ?, password = ?, roles_id = ? WHERE id = ?";
 	private static final String SQL_DELETE = "DELETE FROM usuarios WHERE id = ?";
-	private static final String SQL_INSERT = "INSERT INTO usuarios (email, password) VALUES (?, ?)";
 
 	static {
 		try {
@@ -23,11 +24,13 @@ public class DaoUsuarioMySql implements DaoUsuario {
 			throw new DalException("No se ha encontrado el driver de MySQL", e);
 		}
 	}
-	
+
 	// SINGLETON
 	private DaoUsuarioMySql() {
 	}
+
 	private static final DaoUsuarioMySql INSTANCIA = new DaoUsuarioMySql();
+
 	public static DaoUsuarioMySql getInstancia() {
 		return INSTANCIA;
 	}
@@ -42,7 +45,7 @@ public class DaoUsuarioMySql implements DaoUsuario {
 			Usuario usuario;
 
 			while (rs.next()) {
-				usuario = new Usuario(rs.getLong("id"), rs.getString("email"), rs.getString("password"));
+				usuario = new Usuario(rs.getLong("id"), rs.getString("email"), rs.getString("password"), null);
 				usuarios.add(usuario);
 			}
 
@@ -55,15 +58,15 @@ public class DaoUsuarioMySql implements DaoUsuario {
 	@Override
 	public Usuario obtenerPorId(Long id) {
 		try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-				PreparedStatement pst = con.prepareStatement(SQL_SELECT_ID);
-				) {
+				PreparedStatement pst = con.prepareStatement(SQL_SELECT_ID);) {
 			pst.setLong(1, id);
-			
+
 			try (ResultSet rs = pst.executeQuery()) {
 				Usuario usuario = null;
-
+				Rol rol = null;
+				
 				if (rs.next()) {
-					usuario = new Usuario(rs.getLong("id"), rs.getString("email"), rs.getString("password"));
+					rol = new Rol(rs.getLong("r.id"), rs.getString("r.nombre"));							usuario = new Usuario(rs.getLong("u.id"), rs.getString("u.email"), rs.getString("u.password"), rol);
 				}
 
 				return usuario;
@@ -79,6 +82,7 @@ public class DaoUsuarioMySql implements DaoUsuario {
 				PreparedStatement pst = con.prepareStatement(SQL_INSERT)) {
 			pst.setString(1, usuario.getEmail());
 			pst.setString(2, usuario.getPassword());
+			pst.setLong(3, usuario.getRol().getId());
 
 			int numeroRegistrosModificados = pst.executeUpdate();
 
@@ -98,7 +102,8 @@ public class DaoUsuarioMySql implements DaoUsuario {
 				PreparedStatement pst = con.prepareStatement(SQL_UPDATE)) {
 			pst.setString(1, usuario.getEmail());
 			pst.setString(2, usuario.getPassword());
-			pst.setLong(3, usuario.getId());
+			pst.setLong(3,  usuario.getRol().getId());
+			pst.setLong(4, usuario.getId());
 
 			int numeroRegistrosModificados = pst.executeUpdate();
 

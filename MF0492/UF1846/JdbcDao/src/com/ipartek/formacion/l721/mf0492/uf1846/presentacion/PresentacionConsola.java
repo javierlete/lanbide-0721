@@ -8,16 +8,19 @@ public class PresentacionConsola {
 	public static void main(String[] args) {
 		DaoUsuario dao = DaoUsuarioMySql.getInstancia();
 		
-		dao.modificar(new Usuario(8L, "Email8", "Clave8"));
+		//dao.modificar(new Usuario(8L, "Email8", "Clave8"));
 		
 		for(Usuario u: dao.obtenerTodos()) {
 			System.out.println(u);
 		}
 			
-		dao.insertar(new Usuario(null, "NUEVO12", "SUPERNUEVO"));
+		//dao.insertar(new Usuario(null, "NUEVO12", "SUPERNUEVO"));
 		
-		System.out.println(dao.obtenerPorId(12L));
+		Usuario usuario = dao.obtenerPorId(3L);
 		
-		dao.borrar(12L);
+		System.out.println(usuario);
+		System.out.println(usuario.getRol().getNombre());
+		
+		// dao.borrar(12L);
 	}
 }
