@@ -53,4 +53,4 @@
 				aria-label="Close"></button>
 		</div>
 	</c:if>
-	<main class="container">
+	<main class="container mt-3">
