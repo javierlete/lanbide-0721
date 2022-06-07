@@ -31,7 +31,7 @@
 				</ul>
 				<span class="navbar-text">${sessionScope.usuario.email}</span>
 				<ul class="navbar-nav mb-2 mb-lg-0">
-					<c:if test="${sessionScope.usuario.rol == 'ADMIN' }">
+					<c:if test="${sessionScope.usuario != null }">
 						<li class="nav-item"><a class="nav-link"
 							href="admin/proyectos">Administración</a></li>
 					</c:if>
