@@ -14,6 +14,7 @@ public class JpaPrueba {
 		
 		entityManager.getTransaction().begin();
 		
+		// INSERT
 		entityManager.persist(new Usuario(null, "@1", "1"));
 		entityManager.persist(new Usuario(null, "@2", "2"));
 		
@@ -23,6 +24,7 @@ public class JpaPrueba {
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
+		// SELECT
 		List<Usuario> result = entityManager.createQuery("from Usuario", Usuario.class).getResultList();
 		
 		for (Usuario usuario : result) {
@@ -31,7 +33,53 @@ public class JpaPrueba {
 		
 		entityManager.getTransaction().commit();
 		entityManager.close();
+		
+		entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		// MODIFICAR con objeto nuevo
+		Usuario usuario = new Usuario(1L, "Javier@asdf", "laksjdlf");
 
+		entityManager.merge(usuario);
+				
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		
+		entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		// MODIFICAR elemento recibido de JPA
+		usuario = entityManager.find(Usuario.class, 2L);
+		usuario.setEmail("Modificado@asdf");
+				
+		entityManager.getTransaction().commit();
+		entityManager.close();
+
+		
+		entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		// SELECT POR ID
+		usuario = entityManager.find(Usuario.class, 2L);
+		
+		System.out.println(usuario);
+		
+		usuario = entityManager.find(Usuario.class, 1L);
+		
+		System.out.println(usuario);
+				
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		
+		entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		// BORRAR
+		entityManager.remove(entityManager.find(Usuario.class, 2L));
+				
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		
 		entityManagerFactory.close();
 	}
 }
