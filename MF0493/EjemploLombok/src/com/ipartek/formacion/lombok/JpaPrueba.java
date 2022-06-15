@@ -16,7 +16,14 @@ public class JpaPrueba {
 		
 		// INSERT
 		entityManager.persist(new Usuario(null, "@1", "1"));
-		entityManager.persist(new Usuario(null, "@2", "2"));
+		
+		Usuario usuario = new Usuario(null, "@2", "2");
+
+		System.out.println(usuario);
+		
+		entityManager.persist(usuario);
+		
+		System.out.println(usuario);
 		
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -27,8 +34,8 @@ public class JpaPrueba {
 		// SELECT
 		List<Usuario> result = entityManager.createQuery("from Usuario", Usuario.class).getResultList();
 		
-		for (Usuario usuario : result) {
-			System.out.println(usuario);
+		for (Usuario u : result) {
+			System.out.println(u);
 		}
 		
 		entityManager.getTransaction().commit();
@@ -38,7 +45,7 @@ public class JpaPrueba {
 		entityManager.getTransaction().begin();
 		
 		// MODIFICAR con objeto nuevo
-		Usuario usuario = new Usuario(1L, "Javier@asdf", "laksjdlf");
+		usuario = new Usuario(1L, "Javier@asdf", "laksjdlf");
 
 		entityManager.merge(usuario);
 				
