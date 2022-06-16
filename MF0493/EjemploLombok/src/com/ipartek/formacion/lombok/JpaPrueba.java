@@ -2,6 +2,8 @@ package com.ipartek.formacion.lombok;
 
 import java.util.*;
 
+import com.ipartek.formacion.lombok.entidades.*;
+
 import jakarta.persistence.*;
 
 public class JpaPrueba {

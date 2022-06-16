@@ -1,4 +1,4 @@
-package com.ipartek.formacion.lombok;
+package com.ipartek.formacion.lombok.entidades;
 
 import jakarta.persistence.*;
 import lombok.*;
