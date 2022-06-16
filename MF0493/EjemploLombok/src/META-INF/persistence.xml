@@ -12,6 +12,7 @@
     <persistence-unit name="com.ipartek.formacion.lombok.entidades">
 
         <class>com.ipartek.formacion.lombok.entidades.Usuario</class>
+        <class>com.ipartek.formacion.lombok.entidades.Rol</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
