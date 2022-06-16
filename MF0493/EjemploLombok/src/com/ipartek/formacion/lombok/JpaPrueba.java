@@ -10,16 +10,22 @@ public class JpaPrueba {
 
 	public static void main(String[] args) {
 		EntityManagerFactory entityManagerFactory = Persistence
-				.createEntityManagerFactory("com.ipartek.formacion.lombok");
+				.createEntityManagerFactory("com.ipartek.formacion.lombok.entidades");
 
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		entityManager.getTransaction().begin();
 		
 		// INSERT
-		entityManager.persist(new Usuario(null, "@1", "1"));
+		Rol admin = new Rol(null, "ADMIN", "Administrador");
+		Rol user = new Rol(null, "USER", "Usuario");
 		
-		Usuario usuario = new Usuario(null, "@2", "2");
+		entityManager.persist(admin);
+		entityManager.persist(user);
+		
+		entityManager.persist(new Usuario(null, "@1", "1", admin));
+		
+		Usuario usuario = new Usuario(null, "@2", "2", user);
 
 		System.out.println(usuario);
 		
@@ -34,10 +40,27 @@ public class JpaPrueba {
 		entityManager.getTransaction().begin();
 		
 		// SELECT
-		List<Usuario> result = entityManager.createQuery("from Usuario", Usuario.class).getResultList();
+		System.out.println("JPQL");
+		List<Usuario> result = entityManager.createQuery("select u from Usuario u join fetch u.rol", Usuario.class).getResultList();
+		
+		System.out.println("FOR");
 		
 		for (Usuario u : result) {
 			System.out.println(u);
+			System.out.println(u.getRol());
+		}
+		
+		System.out.println("JPQL_ROL");
+		List<Rol> roles = entityManager.createQuery("from Rol", Rol.class).getResultList();
+		
+		System.out.println("FOR_ROL");
+		
+		for (Rol r : roles) {
+			System.out.println(r);
+			
+			for (Usuario u: r.getUsuarios()) {
+				System.out.println(u);
+			}
 		}
 		
 		entityManager.getTransaction().commit();

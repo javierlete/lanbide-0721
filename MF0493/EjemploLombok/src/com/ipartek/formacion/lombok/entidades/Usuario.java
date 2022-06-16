@@ -12,6 +12,8 @@ public class Usuario {
 	private Long id;
 	private String email, password;
 	
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
 	@ManyToOne
 	private Rol rol;
 	

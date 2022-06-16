@@ -7,7 +7,7 @@ import lombok.*;
 
 @Entity
 @Table(name="roles")
-@Data
+@Data @AllArgsConstructor @NoArgsConstructor
 public class Rol {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +15,8 @@ public class Rol {
 	private String nombre;
 	private String descripcion;
 	
-	@OneToMany(mappedBy = "rol")
-	private Set<Usuario> usuarios;
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	@OneToMany(mappedBy = "rol", fetch = FetchType.EAGER)
+	private final Set<Usuario> usuarios = new HashSet<>();
 }
