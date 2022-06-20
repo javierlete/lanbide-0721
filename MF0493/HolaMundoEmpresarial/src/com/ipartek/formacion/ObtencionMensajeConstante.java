@@ -1,5 +1,8 @@
 package com.ipartek.formacion;
 
+import org.springframework.stereotype.*;
+
+@Component
 public class ObtencionMensajeConstante implements ObtencionMensaje {
 
 	@Override

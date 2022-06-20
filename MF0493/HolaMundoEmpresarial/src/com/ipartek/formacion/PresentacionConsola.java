@@ -1,17 +1,25 @@
 package com.ipartek.formacion;
 
-import java.io.*;
-import java.lang.reflect.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.boot.*;
+import org.springframework.boot.autoconfigure.*;
 
-public class PresentacionConsola {
+@SpringBootApplication
+public class PresentacionConsola implements CommandLineRunner {
 
-	public static void main(String[] args)
-			throws InstantiationException, IllegalAccessException, ClassNotFoundException, IOException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
-		Fabrica f = new Fabrica();
+	@Autowired
+	private SalidaConsola sc;
+	
+	@Autowired
+	private ObtencionMensaje om;
 
-		SalidaConsola sc = f.getSalidaConsola(); // new SalidaConsolaDecorada();
-		ObtencionMensaje om = f.getObtencionMensaje(); // new ObtencionMensajeConsola();
+	public static void main(String[] args) {
+		SpringApplication.run(PresentacionConsola.class, args);
+	}
 
+	@Override
+	public void run(String... args) throws Exception {
 		sc.mostrar(om.getMensaje());
 	}
 }
+
