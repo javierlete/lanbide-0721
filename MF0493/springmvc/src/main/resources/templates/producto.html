@@ -8,7 +8,11 @@
 
 <form th:action="@{/producto}" th:object="${producto}" method="post">
 	<input th:field="*{nombre}" placeholder="Nombre">
+	<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+	<br />
 	<input th:field="*{precio}" placeholder="Precio">
+	<span th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></span>
+	<br />
 	<button>Guardar</button>
 </form>
 

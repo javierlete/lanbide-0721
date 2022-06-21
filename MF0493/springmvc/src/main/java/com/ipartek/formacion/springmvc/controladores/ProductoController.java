@@ -1,6 +1,9 @@
 package com.ipartek.formacion.springmvc.controladores;
 
+import javax.validation.*;
+
 import org.springframework.stereotype.*;
+import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
 
 import com.ipartek.formacion.springmvc.*;
@@ -12,10 +15,13 @@ public class ProductoController {
 	public String mostrarFormulario(Producto producto) {
 		return "producto";
 	}
-	
+
 	@PostMapping
-	public String leerFormulario(Producto producto) {
-		System.out.println(producto);
-		return "producto-mostrar";
+	public String leerFormulario(@Valid Producto producto, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "producto";
+		} else {
+			return "producto-mostrar";
+		}
 	}
 }
