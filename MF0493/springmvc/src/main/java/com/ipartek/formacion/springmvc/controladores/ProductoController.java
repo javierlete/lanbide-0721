@@ -9,7 +9,7 @@ import com.ipartek.formacion.springmvc.*;
 @RequestMapping("/producto")
 public class ProductoController {
 	@GetMapping
-	public String mostrarFormulario() {
+	public String mostrarFormulario(Producto producto) {
 		return "producto";
 	}
 	
