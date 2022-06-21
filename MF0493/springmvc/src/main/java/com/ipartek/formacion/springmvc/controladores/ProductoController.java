@@ -1,5 +1,7 @@
 package com.ipartek.formacion.springmvc.controladores;
 
+import java.math.*;
+
 import javax.validation.*;
 
 import org.springframework.beans.factory.annotation.*;
@@ -15,7 +17,7 @@ import com.ipartek.formacion.springmvc.repositorios.*;
 public class ProductoController {
 	
 	@Autowired
-	private DaoProducto dao;
+	private ProductoRepository repo;
 	
 	@GetMapping
 	public String mostrarFormulario(Producto producto) {
@@ -27,8 +29,14 @@ public class ProductoController {
 		if (bindingResult.hasErrors()) {
 			return "producto";
 		} else {
-			dao.insertar(producto);
+			repo.save(producto);
 			return "producto-mostrar";
 		}
+	}
+	
+	@GetMapping("/{menor}/{mayor}")
+	@ResponseBody
+	public String mostrarProductosEntreMenorYMayor(@PathVariable BigDecimal menor, @PathVariable BigDecimal mayor) {
+		return repo.findByPrecioBetween(menor, mayor).toString();
 	}
 }
