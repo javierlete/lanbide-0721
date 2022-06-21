@@ -2,11 +2,9 @@ package com.ipartek.formacion.springmvc.repositorios;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.jdbc.core.*;
-import org.springframework.stereotype.*;
 
 import com.ipartek.formacion.springmvc.*;
 
-@Repository
 public class DaoProductoMySql implements DaoProducto {
 
 	@Autowired
