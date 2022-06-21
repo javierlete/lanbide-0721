@@ -16,6 +16,6 @@ public class ProductoController {
 	@PostMapping
 	public String leerFormulario(Producto producto) {
 		System.out.println(producto);
-		return "producto";
+		return "producto-mostrar";
 	}
 }
