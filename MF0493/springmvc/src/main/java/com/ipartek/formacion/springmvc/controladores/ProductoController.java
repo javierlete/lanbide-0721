@@ -10,17 +10,19 @@ import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
 
 import com.ipartek.formacion.springmvc.entidades.*;
-import com.ipartek.formacion.springmvc.repositorios.*;
+import com.ipartek.formacion.springmvc.servicios.*;
 
 @Controller
 @RequestMapping("/producto")
 public class ProductoController {
 	
 	@Autowired
-	private ProductoRepository repo;
+	private ProductoService servicio;
 	
 	@GetMapping
 	public String mostrarFormulario(Producto producto) {
+		producto.setNombre("Valor inicial");
+		producto.setPrecio(BigDecimal.ZERO);
 		return "producto";
 	}
 
@@ -29,7 +31,7 @@ public class ProductoController {
 		if (bindingResult.hasErrors()) {
 			return "producto";
 		} else {
-			repo.save(producto);
+			servicio.guardar(producto);
 			return "producto-mostrar";
 		}
 	}
@@ -37,6 +39,6 @@ public class ProductoController {
 	@GetMapping("/{menor}/{mayor}")
 	@ResponseBody
 	public String mostrarProductosEntreMenorYMayor(@PathVariable BigDecimal menor, @PathVariable BigDecimal mayor) {
-		return repo.findByPrecioBetween(menor, mayor).toString();
+		return servicio.buscarPorPrecios(menor, mayor).toString();
 	}
 }
