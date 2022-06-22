@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8">
 <title>Inicio</title>
@@ -10,7 +10,7 @@
 	<form th:action="@{/logout}" method="post">
 		<button>Logout</button>
 	</form>
-	<a th:href="@{/admin/productos}">Administración de productos</a>
+	<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin/productos}">Administración de productos</a>
 
 	<a th:href="@{/producto}">Producto</a>
 
