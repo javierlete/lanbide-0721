@@ -1,4 +1,4 @@
-package com.ipartek.formacion.springmvc;
+package com.ipartek.formacion.springmvc.entidades;
 
 import java.math.*;
 

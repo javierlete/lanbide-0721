@@ -9,7 +9,7 @@ import org.springframework.stereotype.*;
 import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
 
-import com.ipartek.formacion.springmvc.*;
+import com.ipartek.formacion.springmvc.entidades.*;
 import com.ipartek.formacion.springmvc.repositorios.*;
 
 @Controller
