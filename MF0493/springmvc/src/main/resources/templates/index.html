@@ -6,11 +6,13 @@
 </head>
 <body>
 
-<a th:href="@{/login}">Login</a>
-<a th:href="@{/logout}">Logout</a>
-<a th:href="@{/admin/productos}">Administración de productos</a>
+	<a th:href="@{/login}">Login</a>
+	<form th:action="@{/logout}" method="post">
+		<button>Logout</button>
+	</form>
+	<a th:href="@{/admin/productos}">Administración de productos</a>
 
-<a th:href="@{/producto}">Producto</a>
+	<a th:href="@{/producto}">Producto</a>
 
 </body>
 </html>

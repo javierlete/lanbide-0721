@@ -24,7 +24,7 @@ public class SecurityConfiguration {
 			.anyRequest().permitAll()
 			.and()
 		.formLogin()
-			//.loginPage("/login")
+			.loginPage("/login")
 			.permitAll()
 			.and()
 		.logout()
