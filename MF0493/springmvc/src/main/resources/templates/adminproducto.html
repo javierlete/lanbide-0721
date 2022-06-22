@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Producto</title>
+</head>
+<body>
+
+<form th:action="@{/admin/producto}" th:object="${producto}" method="post">
+	<input type="hidden" th:field="*{id}">
+	<input th:field="*{nombre}" placeholder="Nombre">
+	<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+	<br />
+	<input th:field="*{precio}" placeholder="Precio">
+	<span th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></span>
+	<br />
+	<button>Guardar</button>
+</form>
+
+</body>
+</html>

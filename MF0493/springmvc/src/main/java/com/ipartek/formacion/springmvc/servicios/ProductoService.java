@@ -23,4 +23,20 @@ public class ProductoService {
 	public void guardar(@Valid Producto producto) {
 		repo.save(producto);		
 	}
+
+	public Iterable<Producto> obtenerTodos() {
+		return repo.findAll();
+	}
+
+	public Producto obtenerPorId(Long id) {
+		return repo.findById(id).orElse(null);
+	}
+
+	public void borrarPorId(Long id) {
+		repo.deleteById(id);
+	}
+
+	public void modificar(@Valid Producto producto) {
+		repo.save(producto);
+	}
 }
