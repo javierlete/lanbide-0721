@@ -17,6 +17,14 @@ public class SecurityConfiguration {
 	@Bean
     UserDetailsManager users(DataSource dataSource) {
         JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
+        
+        users.setUsersByUsernameQuery("SELECT email,password,1 "
+                + "from usuarios "
+                + "where email = ?");
+        users.setAuthoritiesByUsernameQuery("select email,rol "
+                + "from usuarios "
+                + "where email = ?");
+        
         return users;
     }
 	 // https://bcrypt-generator.com/
