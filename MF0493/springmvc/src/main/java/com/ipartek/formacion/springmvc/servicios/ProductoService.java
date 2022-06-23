@@ -5,6 +5,7 @@ import java.math.*;
 import javax.validation.*;
 
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.access.annotation.*;
 import org.springframework.stereotype.*;
 
 import com.ipartek.formacion.springmvc.entidades.*;
@@ -16,6 +17,7 @@ public class ProductoService {
 	@Autowired
 	private ProductoRepository repo;
 
+	@Secured("ROLE_ADMIN")
 	public Iterable<Producto> buscarPorPrecios(BigDecimal menor, BigDecimal mayor) {
 		return repo.findByPrecioBetween(menor, mayor);
 	}
