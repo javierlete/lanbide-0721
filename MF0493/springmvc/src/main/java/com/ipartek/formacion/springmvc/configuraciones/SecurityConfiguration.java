@@ -1,31 +1,33 @@
 package com.ipartek.formacion.springmvc.configuraciones;
 
+import java.util.*;
+
 import javax.sql.*;
 
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.context.annotation.*;
 import org.springframework.security.config.annotation.web.builders.*;
+import org.springframework.security.core.*;
+import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.security.provisioning.*;
 import org.springframework.security.web.*;
+
+import com.ipartek.formacion.springmvc.entidades.*;
+import com.ipartek.formacion.springmvc.repositorios.*;
 
 @Configuration
 public class SecurityConfiguration {
 	// https://www.baeldung.com/spring-security-jdbc-authentication
 	// https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter
 	
+	@Autowired
+	private UsuarioRepository repo;
+	
 	@Bean
     UserDetailsManager users(DataSource dataSource) {
-        JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
-        
-        users.setUsersByUsernameQuery("SELECT email,password,1 "
-                + "from usuarios "
-                + "where email = ?");
-        users.setAuthoritiesByUsernameQuery("select email,rol "
-                + "from usuarios "
-                + "where email = ?");
-        
-        return users;
+        return new UsuarioDetailsManager(repo);
     }
 	 // https://bcrypt-generator.com/
 	@Bean
