@@ -1,20 +1,15 @@
 package com.ipartek.formacion.springmvc.configuraciones;
 
-import java.util.*;
-
 import javax.sql.*;
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.context.annotation.*;
 import org.springframework.security.config.annotation.web.builders.*;
-import org.springframework.security.core.*;
-import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.security.crypto.password.*;
 import org.springframework.security.provisioning.*;
 import org.springframework.security.web.*;
 
-import com.ipartek.formacion.springmvc.entidades.*;
 import com.ipartek.formacion.springmvc.repositorios.*;
 
 @Configuration
@@ -37,7 +32,7 @@ public class SecurityConfiguration {
 	
 	@Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http
+		http.csrf().disable().cors().and()
 		.authorizeRequests()
 			.antMatchers("/admin/**").hasRole("ADMIN")
 			.anyRequest().permitAll()
