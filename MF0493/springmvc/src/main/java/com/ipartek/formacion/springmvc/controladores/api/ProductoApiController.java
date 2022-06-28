@@ -39,6 +39,10 @@ public class ProductoApiController {
 	
 	@PutMapping("{id}")
 	public Producto modificar(@PathVariable Long id, @RequestBody Producto producto) {
+		if(id != producto.getId()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No coinciden los ids");
+		}
+		
 		if(servicio.obtenerPorId(id) == null) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
