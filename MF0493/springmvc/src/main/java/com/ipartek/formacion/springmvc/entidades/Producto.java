@@ -20,4 +20,7 @@ public class Producto {
 
 	@DecimalMin("0")
 	private BigDecimal precio;
+	
+	@ManyToOne
+	private Usuario usuario;
 }
