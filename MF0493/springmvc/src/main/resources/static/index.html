@@ -5,23 +5,34 @@
 <title>Insert title here</title>
 <script src="js/index.js"></script>
 </head>
-<body>
+<body style="display: flex;">
 
 <form id="obtener-todos">
 	<button>Obtener Todos</button>
 </form>
 
 <form id="obtener-por-id">
-	<input id="id" type="number">
+	<input id="obtener-id" type="number">
 	<button>Obtener por id</button>
 </form>
 
 <form id="insertar">
-	<input id="nombre" type="text">
-	<input id="precio" type="number" step=".01">
+	<input id="insertar-nombre" type="text">
+	<input id="insertar-precio" type="number" step=".01">
 	<button>Insertar</button>
 </form>
 
+<form id="modificar">
+	<input id="modificar-id" type="number" min="1">
+	<input id="modificar-nombre" type="text">
+	<input id="modificar-precio" type="number" step=".01">
+	<button>Modificar</button>
+</form>
+
+<form id="borrar">
+	<input id="borrar-id" type="number" min="1">
+	<button>Borrar</button>
+</form>
 <div id="resultados">
 </div>
 

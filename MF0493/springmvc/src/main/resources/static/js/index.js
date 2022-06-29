@@ -1,3 +1,4 @@
+const URL = 'http://localhost:8080/api/productos/';
 let resultados;
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -6,12 +7,14 @@ window.addEventListener('DOMContentLoaded', function() {
 	document.querySelector('#obtener-todos').addEventListener('submit', obtenerTodos);
 	document.querySelector('#obtener-por-id').addEventListener('submit', obtenerPorId);
 	document.querySelector('#insertar').addEventListener('submit', insertar);
+	document.querySelector('#modificar').addEventListener('submit', modificar);
+	document.querySelector('#borrar').addEventListener('submit', borrar);
 });
 
 async function obtenerTodos(e) {
 	e.preventDefault();
 	
-	const peticion = await fetch('http://localhost:8080/api/productos');
+	const peticion = await fetch(URL);
 	const objeto = await peticion.json();
 	
 	const productos = objeto._embedded.productos;
@@ -24,7 +27,7 @@ async function obtenerTodos(e) {
 	for(producto of productos) {
 		elemento = document.createElement('p');
 		
-		elemento.innerText = producto.nombre + ": " + producto.precio;
+		elemento.innerText = producto.id + ': ' + producto.nombre + ": " + producto.precio;
 		
 		resultados.appendChild(elemento);
 	};
@@ -33,27 +36,27 @@ async function obtenerTodos(e) {
 async function obtenerPorId(e) {
 	e.preventDefault();
 	
-	const id = document.getElementById('id').value;
+	const id = document.getElementById('obtener-id').value;
 	
-	const peticion = await fetch('http://localhost:8080/api/productos/' + id);
+	const peticion = await fetch(URL + id);
 	const objeto = await peticion.json();
 	
 	const producto = objeto;
 	
 	resultados.innerHTML = '';
 
-	resultados.innerText = producto.nombre + ": " + producto.precio;
+	resultados.innerText = producto.id + ":" + producto.nombre + ": " + producto.precio;
 }
 
 async function insertar(e) {
 	e.preventDefault();
 	
-	const nombre = document.getElementById('nombre').value;
-	const precio = document.getElementById('precio').value;
+	const nombre = document.getElementById('insertar-nombre').value;
+	const precio = document.getElementById('insertar-precio').value;
 	
 	const nuevo = { nombre, precio };
 	
-	const peticion = await fetch('http://localhost:8080/api/productos', {
+	const peticion = await fetch(URL, {
 		method: 'POST',
 		body: JSON.stringify(nuevo),
 		headers: {
@@ -68,4 +71,44 @@ async function insertar(e) {
 	resultados.innerHTML = '';
 
 	resultados.innerText = producto.id + ": " + producto.nombre + " -> " + producto.precio;
+	
+	obtenerTodos(e);
+}
+
+async function modificar(e) {
+	e.preventDefault();
+	
+	const id = document.getElementById('modificar-id').value;
+	const nombre = document.getElementById('modificar-nombre').value;
+	const precio = document.getElementById('modificar-precio').value;
+	
+	const nuevo = { id, nombre, precio };
+	
+	const peticion = await fetch(URL + id, {
+		method: 'PUT',
+		body: JSON.stringify(nuevo),
+		headers: {
+      		'Content-Type': 'application/json'
+  		}
+	});
+	
+	const objeto = await peticion.json();
+	
+	const producto = objeto;
+	
+	resultados.innerHTML = '';
+
+	resultados.innerText = producto.id + ": " + producto.nombre + " -> " + producto.precio;
+	
+	obtenerTodos(e);
+}
+
+async function borrar(e) {
+	e.preventDefault();
+	
+	const id = document.getElementById('borrar-id').value;
+	
+	await fetch(URL + id, {method: 'DELETE'});
+	
+	obtenerTodos(e);
 }
