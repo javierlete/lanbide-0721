@@ -3,38 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- CSS only -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+	crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+	crossorigin="anonymous"></script>
+
 <script src="js/index.js"></script>
 </head>
-<body style="display: flex;">
+<body class="container mb-3">
 
-<form id="obtener-todos">
-	<button>Obtener Todos</button>
-</form>
+	<div id="formularios" class="row">
 
-<form id="obtener-por-id">
-	<input id="obtener-id" type="number">
-	<button>Obtener por id</button>
-</form>
+		<form class="col mb-3" id="obtener-todos">
+			<button class="btn btn-primary">Obtener Todos</button>
+		</form>
 
-<form id="insertar">
-	<input id="insertar-nombre" type="text">
-	<input id="insertar-precio" type="number" step=".01">
-	<button>Insertar</button>
-</form>
+		<form class="col mb-3" id="obtener-por-id">
+			<input class="form-control" id="obtener-id" type="number"
+				placeholder="Id">
+			<button class="btn btn-primary">Obtener por id</button>
+		</form>
 
-<form id="modificar">
-	<input id="modificar-id" type="number" min="1">
-	<input id="modificar-nombre" type="text">
-	<input id="modificar-precio" type="number" step=".01">
-	<button>Modificar</button>
-</form>
+		<form class="col mb-3" id="insertar">
+			<input class="form-control" id="insertar-nombre" type="text"
+				placeholder="Nombre"> <input class="form-control"
+				id="insertar-precio" type="number" step=".01" placeholder="Precio">
+			<button class="btn btn-primary">Insertar</button>
+		</form>
 
-<form id="borrar">
-	<input id="borrar-id" type="number" min="1">
-	<button>Borrar</button>
-</form>
-<div id="resultados">
-</div>
+		<form class="col mb-3" id="modificar">
+			<input class="form-control" id="modificar-id" type="number" min="1"
+				placeholder="Id"> <input class="form-control"
+				id="modificar-nombre" type="text" placeholder="Nombre"> <input
+				class="form-control" id="modificar-precio" type="number" step=".01"
+				placeholder="Precio">
+			<button class="btn btn-primary">Modificar</button>
+		</form>
+
+		<form class="col mb-3" id="borrar">
+			<input class="form-control" id="borrar-id" type="number" min="1"
+				placeholder="Id">
+			<button class="btn btn-primary">Borrar</button>
+		</form>
+
+	</div>
+	<div class="row mb-3" id="resultados" class="table-responsive">
+		<table class="table table-hover table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Precio</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
 
 
 </body>

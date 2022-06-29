@@ -2,7 +2,7 @@ const URL = 'http://localhost:8080/api/productos/';
 let resultados;
 
 window.addEventListener('DOMContentLoaded', function() {
-	resultados = document.getElementById('resultados');
+	resultados = document.querySelector('#resultados tbody');
 	
 	document.querySelector('#obtener-todos').addEventListener('submit', obtenerTodos);
 	document.querySelector('#obtener-por-id').addEventListener('submit', obtenerPorId);
@@ -25,9 +25,14 @@ async function obtenerTodos(e) {
 	let producto;
 	let elemento;
 	for(producto of productos) {
-		elemento = document.createElement('p');
+		elemento = document.createElement('tr');
 		
-		elemento.innerText = producto.id + ': ' + producto.nombre + ": " + producto.precio;
+		elemento.innerHTML = 
+		`
+		<th>${producto.id}</th>
+		<td>${producto.nombre}</td>
+		<td>${producto.precio}</td>
+		`;
 		
 		resultados.appendChild(elemento);
 	};
