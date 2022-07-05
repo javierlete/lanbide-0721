@@ -1,0 +1,114 @@
+swagger: "2.0"
+info:
+  description: "Ejemplo de API de películas"
+  version: "1.0.0"
+  title: "Películas"
+host: "localhost:8080"
+basePath: "/api"
+tags:
+- name: "usuarios"
+  description: "Gestión de usuarios"
+schemes:
+- "http"
+paths:
+  /usuarios:
+    get:
+      tags:
+      - "usuarios"
+      summary: "Obtener todos los usuarios"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Operación correcta"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Usuario"
+    post:
+      tags:
+      - "usuarios"
+      summary: "Crear usuario"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Objeto de tipo usuario"
+        required: true
+        schema:
+          $ref: "#/definitions/Usuario"
+      responses:
+        default:
+          description: "Todo bien"
+  /usuarios/{id}:
+    get:
+      tags:
+        - "usuarios"
+      summary: "Obtener un usuario por su id"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID del usuario a devolver"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Operación correcta"
+          schema:
+            $ref: "#/definitions/Usuario"
+    put:
+      tags:
+      - "usuarios"
+      summary: "Modificar usuario"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Objeto de tipo usuario"
+        required: true
+        schema:
+          $ref: "#/definitions/Usuario"
+      - name: "id"
+        in: "path"
+        description: "Id del elemento a modificar"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        default:
+          description: "Todo bien"
+    delete:
+      tags:
+      - "usuarios"
+      summary: "Borrar usuario"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Id del elemento a modificar"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        default:
+          description: "Todo bien"
+      
+definitions:
+  Usuario:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      rol:
+        type: "string"
