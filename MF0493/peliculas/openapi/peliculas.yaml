@@ -39,8 +39,8 @@ paths:
         schema:
           $ref: "#/definitions/Usuario"
       responses:
-        default:
-          description: "Todo bien"
+        "200":
+          description: "Operación correcta"
   /usuarios/{id}:
     get:
       tags:
@@ -60,6 +60,8 @@ paths:
           description: "Operación correcta"
           schema:
             $ref: "#/definitions/Usuario"
+        "404":
+          description: "No encontrado"
     put:
       tags:
       - "usuarios"
@@ -98,7 +100,91 @@ paths:
       responses:
         default:
           description: "Todo bien"
-      
+  /usuarios/search/findByEmail:
+    get:
+      tags:
+        - "usuarios"
+      summary: "Obtener un usuario por su email"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "email"
+        in: "query"
+        description: "Email del usuario a devolver"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Operación correcta"
+          schema:
+            $ref: "#/definitions/Usuario"
+        "404":
+          description: "No encontrado"
+  /usuarios/search/buscarAdminPorEmail:
+    get:
+      tags:
+        - "usuarios"
+      summary: "Obtener un administrador por su email"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "email"
+        in: "query"
+        description: "Email del administrador a devolver"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Operación correcta"
+          schema:
+            $ref: "#/definitions/Usuario"
+        "404":
+          description: "No encontrado"
+  /usuarios/search/findByEmailAndPassword:
+    get:
+      tags:
+        - "usuarios"
+      summary: "Obtener un usuario por su email y password"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "email"
+        in: "query"
+        description: "Email del usuario a devolver"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "Password del usuario a devolver"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Operación correcta"
+          schema:
+            $ref: "#/definitions/Usuario"
+        "404":
+          description: "No encontrado"
+  /usuarios/search/findByRol:
+    get:
+      tags:
+      - "usuarios"
+      summary: "Obtener todos los usuarios de un determinado rol"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "rol"
+        in: "query"
+        description: "Rol de los usuarios a devolver"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Operación correcta"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Usuario"
 definitions:
   Usuario:
     type: "object"
