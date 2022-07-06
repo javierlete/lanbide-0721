@@ -21,7 +21,7 @@ public class SecurityConfiguration {
         users.setUsersByUsernameQuery("SELECT email,password,1 "
                 + "from usuarios "
                 + "where email = ?");
-        users.setAuthoritiesByUsernameQuery("select email,rol "
+        users.setAuthoritiesByUsernameQuery("select email,CONCAT('ROLE_',rol) "
                 + "from usuarios "
                 + "where email = ?");
         
@@ -41,7 +41,7 @@ public class SecurityConfiguration {
 			.anyRequest().permitAll()
 			.and()
 		.formLogin()
-			//.loginPage("/login")
+			.loginPage("/login")
 			.permitAll()
 			.and()
 		.logout()
