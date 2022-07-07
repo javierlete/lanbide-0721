@@ -25,6 +25,7 @@ public class Pelicula {
 	private String titulo;
 	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate fechaEstreno;
+	@DecimalMin("0")
 	private BigDecimal coste;
 	
 	@ManyToMany

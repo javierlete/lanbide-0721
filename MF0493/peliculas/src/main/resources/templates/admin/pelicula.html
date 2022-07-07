@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html th:replace="~{principal :: principal(~{::title}, ~{::div})}" xmlns:th="http://www.thymeleaf.org">
+<html th:replace="~{principal :: principal(~{::title}, ~{::div})}"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Administración películas</title>
+<title>Administración películas</title>
 </head>
 <body>
-<div>
-	<p th:text="${pelicula}"></p>
-	
-	<form th:action="@{/admin/peliculas}" th:object="${pelicula}" method="post">
-		<p th:errors="*"></p>
-	
-		<input readonly th:field="*{id}">
-		<input th:field="*{titulo}">
-		<input type="date" th:field="*{fechaEstreno}">
-		<input type="number" th:field="*{coste}">
-		<button>Aceptar</button>
-	</form>
-</div>
+	<div>
+		<p th:text="${pelicula}"></p>
+
+		<form th:action="@{/admin/peliculas}" th:object="${pelicula}"
+			method="post">
+			<p th:errors="*"></p>
+
+			<div>
+				<input readonly th:field="*{id}">
+				<span th:errors="*{id}"></span>
+			</div>
+			<div>
+				<input th:field="*{titulo}">
+				<span th:errors="*{titulo}"></span>
+			</div>
+			<div>
+				<input type="date" th:field="*{fechaEstreno}">
+				<span th:errors="*{fechaEstreno}"></span>
+			</div>
+			<div>
+				<input type="number" th:field="*{coste}">
+				<span th:errors="*{coste}"></span>
+			</div>
+			<button>Aceptar</button>
+		</form>
+	</div>
 </body>
 </html>
