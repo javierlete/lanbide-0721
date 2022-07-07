@@ -8,7 +8,7 @@
 	<div>
 		<p th:text="${pelicula}"></p>
 
-		<form th:action="@{/admin/peliculas}" th:object="${pelicula}"
+		<form class="needs-validation" th:action="@{/admin/peliculas}" th:object="${pelicula}"
 			method="post" novalidate>
 			<p th:errors="*"></p>
 
@@ -29,11 +29,34 @@
 			</div>
 			<div>
 				<label for="coste">Coste</label>
-				<input th:class="'form-control' + (${#fields.hasErrors('coste')} ? ' is-invalid' : '')" type="number" th:field="*{coste}">
-				<span class="invalid-feedback" th:errors="*{coste}"></span>
+				<input min="0" th:class="'form-control' + (${#fields.hasErrors('coste')} ? ' is-invalid' : '')" type="number" th:field="*{coste}">
+				<span class="invalid-feedback" th:if="${#fields.hasErrors('coste')}" th:errors="*{coste}"></span>
+				<span class="invalid-feedback" th:if="${!#fields.hasErrors('coste')}">El coste debe ser superior a cero</span>
 			</div>
 			<button class="btn btn-primary">Aceptar</button>
 		</form>
+		
+		<script>
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(() => {
+		  'use strict'
+
+		  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+		  const forms = document.querySelectorAll('.needs-validation')
+
+		  // Loop over them and prevent submission
+		  Array.from(forms).forEach(form => {
+		    form.addEventListener('submit', event => {
+		      if (!form.checkValidity()) {
+		        event.preventDefault()
+		        event.stopPropagation()
+		      }
+
+		      form.classList.add('was-validated')
+		    }, false)
+		  })
+		})()
+		</script>
 	</div>
 </body>
 </html>
