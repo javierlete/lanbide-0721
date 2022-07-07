@@ -9,26 +9,30 @@
 		<p th:text="${pelicula}"></p>
 
 		<form th:action="@{/admin/peliculas}" th:object="${pelicula}"
-			method="post">
+			method="post" novalidate>
 			<p th:errors="*"></p>
 
 			<div>
-				<input readonly th:field="*{id}">
-				<span th:errors="*{id}"></span>
+				<label for="id">Id</label>
+				<input th:class="'form-control' + (${#fields.hasErrors('id')} ? ' is-invalid' : '')" readonly th:field="*{id}">
+				<span class="invalid-feedback" th:errors="*{id}"></span>
 			</div>
 			<div>
-				<input th:field="*{titulo}">
-				<span th:errors="*{titulo}"></span>
+				<label for="titulo">Título</label>
+				<input th:class="'form-control' + (${#fields.hasErrors('titulo')} ? ' is-invalid' : '')" th:field="*{titulo}">
+				<span class="invalid-feedback" th:errors="*{titulo}"></span>
 			</div>
 			<div>
-				<input type="date" th:field="*{fechaEstreno}">
-				<span th:errors="*{fechaEstreno}"></span>
+				<label for="fechaEstreno">Fecha de estreno</label>
+				<input th:class="'form-control' + (${#fields.hasErrors('fechaEstreno')} ? ' is-invalid' : '')" type="date" th:field="*{fechaEstreno}">
+				<span class="invalid-feedback" th:errors="*{fechaEstreno}"></span>
 			</div>
 			<div>
-				<input type="number" th:field="*{coste}">
-				<span th:errors="*{coste}"></span>
+				<label for="coste">Coste</label>
+				<input th:class="'form-control' + (${#fields.hasErrors('coste')} ? ' is-invalid' : '')" type="number" th:field="*{coste}">
+				<span class="invalid-feedback" th:errors="*{coste}"></span>
 			</div>
-			<button>Aceptar</button>
+			<button class="btn btn-primary">Aceptar</button>
 		</form>
 	</div>
 </body>
