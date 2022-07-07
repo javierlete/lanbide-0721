@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html th:replace="~{principal :: principal(~{::title}, ~{::div})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Administración películas</title>
+</head>
+<body>
+<div>
+	<table class="table table-bordered table-hover table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Título</th>
+				<th>Fecha de estreno</th>
+				<th>Coste</th>
+				<th>Opciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="p: ${peliculas}">
+				<th th:text="${p.id}">Id1</th>
+				<td th:text="${p.titulo}">Título1</td>
+				<td th:text="${p.fechaEstreno}">Fecha de estreno1</td>
+				<td th:text="${p.coste}">Coste1</td>
+				<td>
+					<a class="btn btn-primary" href="#">Editar</a>
+					<a class="btn btn-danger" href="#">Borrar</a>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<a class="btn btn-primary" href="#">Añadir</a>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+</body>
+</html>

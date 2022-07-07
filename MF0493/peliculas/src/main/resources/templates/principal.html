@@ -28,6 +28,8 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="#">Principal</a></li>
+					<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a class="nav-link active"
+						aria-current="page" href="admin/peliculas">Administración</a></li>
 				</ul>
 
 				<span sec:authorize="isAuthenticated()" sec:authentication="name"
