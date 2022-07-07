@@ -22,8 +22,8 @@
 				<td th:text="${p.fechaEstreno}">Fecha de estreno1</td>
 				<td th:text="${p.coste}">Coste1</td>
 				<td>
-					<a class="btn btn-primary" href="#">Editar</a>
-					<a class="btn btn-danger" href="#">Borrar</a>
+					<a class="btn btn-primary" th:href="'admin/peliculas/' + ${p.id}">Editar</a>
+					<a class="btn btn-danger" th:href="'admin/peliculas/' + ${p.id} + '/borrar'">Borrar</a>
 				</td>
 			</tr>
 		</tbody>
@@ -34,7 +34,7 @@
 				<td></td>
 				<td></td>
 				<td>
-					<a class="btn btn-primary" href="#">Añadir</a>
+					<a class="btn btn-primary" href="admin/peliculas/insertar">Añadir</a>
 				</td>
 			</tr>
 		</tfoot>

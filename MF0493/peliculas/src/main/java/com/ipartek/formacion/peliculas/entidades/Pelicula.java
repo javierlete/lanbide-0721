@@ -7,6 +7,9 @@ import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
+import org.springframework.format.annotation.*;
+import org.springframework.format.annotation.DateTimeFormat.*;
+
 import lombok.*;
 
 @Entity
@@ -20,6 +23,7 @@ public class Pelicula {
 	@NotNull
 	@NotBlank
 	private String titulo;
+	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate fechaEstreno;
 	private BigDecimal coste;
 	
