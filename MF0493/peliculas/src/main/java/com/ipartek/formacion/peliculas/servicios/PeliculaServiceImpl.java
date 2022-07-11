@@ -36,6 +36,8 @@ public class PeliculaServiceImpl implements PeliculaService {
 	@Override
 	public Pelicula modificar(Pelicula pelicula) {
 		log.info("Se va a modificar la película " + pelicula);
+		log.info("con los géneros:" + pelicula.getGeneros());
+		
 		return repo.save(pelicula);
 	}
 

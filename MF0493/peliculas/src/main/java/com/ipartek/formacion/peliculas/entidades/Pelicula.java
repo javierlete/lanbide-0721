@@ -28,10 +28,18 @@ public class Pelicula {
 	@DecimalMin("0")
 	private BigDecimal coste;
 	
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@ManyToMany
 	private Set<Artista> directores;
+	
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "pelicula")
 	private Set<Papel> papeles;
-	@ManyToMany(mappedBy = "peliculas")
+	
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@ManyToMany
 	private Set<Genero> generos;
 }

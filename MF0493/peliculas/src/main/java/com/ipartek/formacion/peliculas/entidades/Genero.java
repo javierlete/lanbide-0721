@@ -19,6 +19,8 @@ public class Genero {
 	@NotBlank
 	private String tipo;
 	
-	@ManyToMany
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@ManyToMany(mappedBy = "generos")
 	private Set<Pelicula> peliculas;
 }

@@ -8,34 +8,52 @@
 	<div>
 		<p th:text="${pelicula}"></p>
 
-		<form class="needs-validation" th:action="@{/admin/peliculas}" th:object="${pelicula}"
-			method="post" novalidate>
+		<form class="needs-validation" th:action="@{/admin/peliculas}"
+			th:object="${pelicula}" method="post" novalidate>
 			<p th:errors="*"></p>
 
 			<div>
-				<label for="id">Id</label>
-				<input th:class="'form-control' + (${#fields.hasErrors('id')} ? ' is-invalid' : '')" readonly th:field="*{id}">
-				<span class="invalid-feedback" th:errors="*{id}"></span>
+				<label for="id">Id</label> <input
+					th:class="'form-control' + (${#fields.hasErrors('id')} ? ' is-invalid' : '')"
+					readonly th:field="*{id}"> <span class="invalid-feedback"
+					th:errors="*{id}"></span>
 			</div>
 			<div>
-				<label for="titulo">Título</label>
-				<input th:class="'form-control' + (${#fields.hasErrors('titulo')} ? ' is-invalid' : '')" th:field="*{titulo}">
-				<span class="invalid-feedback" th:errors="*{titulo}"></span>
+				<label for="titulo">Título</label> <input
+					th:class="'form-control' + (${#fields.hasErrors('titulo')} ? ' is-invalid' : '')"
+					th:field="*{titulo}"> <span class="invalid-feedback"
+					th:errors="*{titulo}"></span>
 			</div>
 			<div>
-				<label for="fechaEstreno">Fecha de estreno</label>
-				<input th:class="'form-control' + (${#fields.hasErrors('fechaEstreno')} ? ' is-invalid' : '')" type="date" th:field="*{fechaEstreno}">
-				<span class="invalid-feedback" th:errors="*{fechaEstreno}"></span>
+				<label for="fechaEstreno">Fecha de estreno</label> <input
+					th:class="'form-control' + (${#fields.hasErrors('fechaEstreno')} ? ' is-invalid' : '')"
+					type="date" th:field="*{fechaEstreno}"> <span
+					class="invalid-feedback" th:errors="*{fechaEstreno}"></span>
 			</div>
 			<div>
-				<label for="coste">Coste</label>
-				<input min="0" th:class="'form-control' + (${#fields.hasErrors('coste')} ? ' is-invalid' : '')" type="number" th:field="*{coste}">
-				<span class="invalid-feedback" th:if="${#fields.hasErrors('coste')}" th:errors="*{coste}"></span>
-				<span class="invalid-feedback" th:if="${!#fields.hasErrors('coste')}">El coste debe ser superior a cero</span>
+				<label for="coste">Coste</label> <input min="0"
+					th:class="'form-control' + (${#fields.hasErrors('coste')} ? ' is-invalid' : '')"
+					type="number" th:field="*{coste}"> <span
+					class="invalid-feedback" th:if="${#fields.hasErrors('coste')}"
+					th:errors="*{coste}"></span> <span class="invalid-feedback"
+					th:if="${!#fields.hasErrors('coste')}">El coste debe ser
+					superior a cero</span>
 			</div>
+
+			<fieldset>
+				<legend>Géneros</legend>
+
+				<div class="form-check" th:each="genero: ${generos}">
+					<label for="titulo" class="form-check-label">[[${genero.tipo}]]</label> <input
+						type="checkbox" th:field="*{generos}" th:value="${genero.id}" th:class="'form-check-input' + (${#fields.hasErrors('titulo')} ? ' is-invalid' : '')"
+						> <span class="invalid-feedback"
+						></span>
+				</div>
+			</fieldset>
+
 			<button class="btn btn-primary">Aceptar</button>
 		</form>
-		
+
 		<script>
 		// Example starter JavaScript for disabling form submissions if there are invalid fields
 		(() => {

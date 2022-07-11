@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import com.ipartek.formacion.peliculas.entidades.*;
 import com.ipartek.formacion.peliculas.servicios.*;
 
+import lombok.extern.java.*;
+
+@Log
 @Controller
 @RequestMapping("/admin/peliculas")
 public class AdminPeliculasController {
+	@Autowired
+	private GeneroService servicioGenero;
 	@Autowired
 	private PeliculaService servicio;
 	
@@ -30,6 +35,7 @@ public class AdminPeliculasController {
 
 	@GetMapping("/{id}")
 	public String editar(@PathVariable Long id, Model modelo) {
+		modelo.addAttribute("generos", servicioGenero.obtenerGeneros());
 		modelo.addAttribute("pelicula", servicio.obtenerPorId(id));
 		return "admin/pelicula";
 	}
@@ -42,6 +48,9 @@ public class AdminPeliculasController {
 	
 	@PostMapping
 	public String postPelicula(@Valid Pelicula pelicula, BindingResult bindingResult) {
+		log.info(pelicula.toString());
+		log.info(pelicula.getGeneros().toString());
+		
 		if(bindingResult.hasErrors()) {
 			return "admin/pelicula";
 		}
