@@ -44,7 +44,7 @@
 				<legend>Géneros</legend>
 
 				<div class="form-check" th:each="genero: ${generos}">
-					<label for="titulo" class="form-check-label">[[${genero.tipo}]]</label> <input
+					<label th:for="${#ids.next('generos')}" class="form-check-label">[[${genero.tipo}]]</label> <input
 						type="checkbox" th:field="*{generos}" th:value="${genero.id}" th:class="'form-check-input' + (${#fields.hasErrors('titulo')} ? ' is-invalid' : '')"
 						> <span class="invalid-feedback"
 						></span>
