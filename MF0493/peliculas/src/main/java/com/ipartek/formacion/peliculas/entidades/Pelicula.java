@@ -31,15 +31,15 @@ public class Pelicula {
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@ManyToMany
-	private Set<Artista> directores;
+	private Set<Artista> directores = new HashSet<>();
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "pelicula")
-	private Set<Papel> papeles;
+	private Set<Papel> papeles = new HashSet<>();
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@ManyToMany
-	private Set<Genero> generos;
+	private Set<Genero> generos = new HashSet<>();
 }

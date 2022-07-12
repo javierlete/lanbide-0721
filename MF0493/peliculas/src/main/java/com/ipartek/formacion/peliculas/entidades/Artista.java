@@ -19,9 +19,13 @@ public class Artista {
 	@NotBlank
 	private String nombre;
 	
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "artista")
 	private Set<Papel> papeles;
 	
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@ManyToMany(mappedBy = "directores")
 	private Set<Pelicula> haDirigido;
 }

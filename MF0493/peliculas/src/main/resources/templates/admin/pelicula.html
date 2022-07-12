@@ -7,6 +7,8 @@
 <body>
 	<div>
 		<p th:text="${pelicula}"></p>
+		<p th:text="${pelicula.generos}"></p>
+		<p th:text="${pelicula.papeles}"></p>
 
 		<form class="needs-validation" th:action="@{/admin/peliculas}"
 			th:object="${pelicula}" method="post" novalidate>
@@ -32,8 +34,7 @@
 				<label for="coste">Coste</label> <input min="0" class="form-control"
 					th:errorclass="is-invalid" type="number" th:field="*{coste}">
 				<span class="invalid-feedback" th:errors="*{coste}"></span> <span
-					class="invalid-feedback">El coste debe ser superior a
-					cero</span>
+					class="invalid-feedback">El coste debe ser superior a cero</span>
 			</div>
 
 			<fieldset>
@@ -41,8 +42,22 @@
 
 				<div class="form-check" th:each="genero: ${generos}">
 					<label th:for="${#ids.next('generos')}" class="form-check-label">[[${genero.tipo}]]</label>
-					<input type="checkbox" th:field="*{generos}"
-						th:value="${genero.id}"> <span class="invalid-feedback"></span>
+					<input class="form-check-input" type="checkbox"
+						th:field="*{generos}" th:value="${genero.id}"> <span
+						class="invalid-feedback"></span>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Papeles</legend>
+
+				<div th:each="papel: ${pelicula.papeles}">
+					<input class="form-control" type="text" name="papeles" th:value="${papel.nombre}">
+					<span class="invalid-feedback"></span> <select class="form-select" name="papeles">
+						<option th:each="artista: ${artistas}" th:value="${artista.id}"
+							th:text="${artista.nombre}"
+							th:selected="${artista.id == papel.artista.id}"></option>
+					</select>
 				</div>
 			</fieldset>
 
