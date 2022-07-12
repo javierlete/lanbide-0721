@@ -29,7 +29,8 @@ public class AdminPeliculasController {
 	}
 	
 	@GetMapping("/insertar")
-	public String insertar(Pelicula pelicula) {
+	public String insertar(Pelicula pelicula, Model modelo) {
+		modelo.addAttribute("generos", servicioGenero.obtenerGeneros());
 		return "admin/pelicula";
 	}
 
@@ -47,11 +48,12 @@ public class AdminPeliculasController {
 	}
 	
 	@PostMapping
-	public String postPelicula(@Valid Pelicula pelicula, BindingResult bindingResult) {
+	public String postPelicula(@Valid Pelicula pelicula, BindingResult bindingResult, Model modelo) {
 		log.info(pelicula.toString());
 		log.info(pelicula.getGeneros().toString());
 		
 		if(bindingResult.hasErrors()) {
+			modelo.addAttribute("generos", servicioGenero.obtenerGeneros());
 			return "admin/pelicula";
 		}
 		
